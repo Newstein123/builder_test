@@ -1,0 +1,95 @@
+import { createContext } from "react";
+import { useState } from "react";
+import { useForm, usePage } from "@inertiajs/react";
+
+export const SectionDataContext = createContext(null);
+
+const fieldData = [
+  {
+      id : 1,
+      name : "Rich Text",
+      type : "textarea",
+      options : [],
+  },
+  {
+      id : 2,
+      name : "Text",
+      type : "text",
+      options : [],
+  },
+  {
+      id : 3,
+      name : "Number",
+      type : "number",
+      options : [],
+  },
+  {
+      id : 4,
+      name : "Date Time",
+      type : "datetime",
+      options : [],
+  },
+  {
+      id : 5,
+      name : "Media",
+      type : "file",
+      options : [
+          {
+              'label' : "One File",
+              'value' : 'one'
+          },
+          {
+              'label' : "Many File",
+              'value' : 'many'
+          },
+      ],
+  },
+  {
+      id : 6,
+      name : "Boolean",
+      type : "boolean",
+      options : [],
+  },
+]
+
+export const SectionDataProvider = ({ children }) => {
+  const [visibleField, setVisibleField] = useState(false);
+  const [visibleComponent, setVisibleComponent] = useState(false);
+  const [visibleCreateModal, setVisibleCreateModal] = useState(false);
+  const [visibleCreateCptModal, setVisbileCreateCptModal] = useState(false)
+  const [errors, setErrors] = useState([]);
+  const {section_id} = usePage().props;
+  const { data, setData, reset } = useForm({
+      name: "",
+      value: "",
+      type: "",
+      option : "",
+      section_id : section_id,
+      isShow: "no",
+  });
+
+
+  return (
+    <SectionDataContext.Provider
+      value={{
+        setVisibleComponent,
+        setVisibleField,
+        setVisibleCreateModal,
+        setVisbileCreateCptModal,
+        setErrors,
+        setData,
+        reset,
+        errors,
+        visibleField,
+        visibleComponent,
+        visibleCreateModal,
+        visibleCreateCptModal,
+        fieldData,
+        data, 
+        section_id,
+      }}
+    >
+      {children}
+    </SectionDataContext.Provider>
+  );
+};
