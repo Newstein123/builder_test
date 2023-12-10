@@ -19,6 +19,10 @@ class Website extends Model
         return $this->hasMany(SectionsData::class);
     }
 
+    public function components_data() {
+        return $this->hasMany(ComponentsData::class);
+    }
+
     public function sections() {
         return $this->template->sections();
     }

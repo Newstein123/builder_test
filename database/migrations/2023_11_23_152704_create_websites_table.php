@@ -15,7 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
-            $table->json('general_data')->comment('General Information to use in website');
+            $table->json('general_data')->nullable()->comment('General Information to use in website');
+            $table->json('design_data')->nullable()->comment('Color pallet and font style');
             $table->foreignId('template_id')->constrained('templates')->onDelete('cascade');
             $table->string('qr_image')->nullable();
             $table->boolean('published')->default(false);

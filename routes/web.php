@@ -102,9 +102,18 @@ Route::prefix('admin')->group(function () {
     Route::delete('field/delete/{id}', [FieldController::class, 'delete'])->name('field.delete');
 });
 
+// My Website 
+// 
+Route::prefix('my-website')->group(function() {
+    Route::get('{id}', [WebsiteController::class, 'my_website'])->name('website.template');
+    Route::get('content-edit/{id}', [WebsiteController::class, 'content_edit'])->name('website.content.edit');
+    Route::post('content-edit/{id}', [WebsiteController::class, 'content_update'])->name('website.content.update');
+    Route::get('design-edit/{id}', [WebsiteController::class, 'design_edit'])->name('website.design.edit');
+    Route::post('design-edit/{id}', [WebsiteController::class, 'design_update'])->name('website.design.update');
+});
+
 // industry  
-Route::get('my-website/{id}', [WebsiteController::class, 'my_website'])->name('website.template');
-Route::get('my-website/content-edit/{id}', [WebsiteController::class, 'content_edit'])->name('website.content.edit');
+
 Route::post('/industry-fields/store', [IndustryController::class, 'fields_store'])->name('industry.field.store');
 Route::resource('industry', IndustryController::class);
 Route::resource('sub_industry', SubIndustryController::class);
@@ -210,7 +219,7 @@ Route::get('/website-data/test', function () {
         'about_section' => $aboutData,
         'product_section' => $productData,
     ];
-
+    dd($sectionsData);
     $sections = [];
 
     foreach ($template->sections as $key =>$section) {
@@ -251,3 +260,6 @@ Route::get('/website-data/test', function () {
 
 // Category 
 Route::post('/category/create', [CategoryController::class, 'store'])->name('category.create');
+Route::get('/test/pattern', function() {
+    return view('test.pattern');
+});

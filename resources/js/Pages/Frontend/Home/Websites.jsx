@@ -50,6 +50,12 @@ const Websites = ({websites}) => {
                                 <td className="px-6 py-4 text-right">
                                     <button>
                                         <a 
+                                            href={`my-website/design-edit/${item.id}`}
+                                            className="font-medium text-red-600 dark:text-blue-500 hover:underline me-3"
+                                        > Edit Design </a>
+                                    </button>
+                                    <button>
+                                        <a 
                                             href={`my-website/content-edit/${item.id}`}
                                             className="font-medium text-red-600 dark:text-blue-500 hover:underline me-3"
                                         > Edit Content </a>
