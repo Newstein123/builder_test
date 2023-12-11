@@ -44,7 +44,7 @@ class ComponentController extends Controller
         return to_route('component.index')->with('message', 'Component create successfully');
     }
 
-    public function cpt_fields_store(Request $request) {
+    public function cpt_content_store(Request $request) {
         $request->validate([
             'name' => 'required',
             'value' => 'required',
@@ -58,13 +58,14 @@ class ComponentController extends Controller
                 'value' => $request->value,
                 'type' => $request->type,
                 'option' => $request->option,
+                'data_type' => 'content'
             ]);
         }
 
         return redirect()->back();
     }
 
-    public function cpt_variables_store(Request $request) {
+    public function cpt_design_store(Request $request) {
         $request->validate([
             'name' => 'required',
             'value' => 'required',
@@ -73,12 +74,12 @@ class ComponentController extends Controller
 
         $component = Component::find($request->cpt_id);
         if($component) {
-            ComponentVariable::create([
+            $component->fields()->create([
                 'name' => $request->name,
                 'value' => $request->value,
                 'type' => $request->type,
-                'option' => $request->option ?? '',
-                'component_id' => $request->cpt_id,
+                'option' => $request->option,
+                'data_type' => 'design'
             ]);
         }
         return redirect()->back();

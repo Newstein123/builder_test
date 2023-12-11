@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>HTML + CSS</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <style>
+    {{links}}
+    </style>
+  </head>
+  <body style="background-color : {{design.color_pallet.primary_color}}" >
+    <!-- layout  -->
+    <div id="loading-overlay">
+        <div class="spinner"></div>
+    </div>
+    <div id="content" style="display: none">
+      <!-- Navbar  -->
+      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Navbar</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Dropdown
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Action</a></li>
+                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li><hr class="dropdown-divider" /></li>
+                  <li>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!-- hero section  -->
+      <div>{{hero_section}}</div>
+      <div  style="background-color : {{secondary_color}}">{{about_section}}</div>
+      <div> {{product_section}} </div>
+      <!-- footer  -->
+      <div class="p-3"> အခြေခံအကြောင်းတရားကား မြန်မာစာသာ ဖြစ်သည်</div>
+    </div>
+  </body>
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"> </script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  ></script>
+  {{js}}
+</html>
+
+#css code 
+
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,400;1,700&family=Noto+Sans+Myanmar:wght@100;200;500;600;700;800;900&family=Noto+Serif+Myanmar:wght@100;200;300;400;500;600;700;800;900&family=Padauk:wght@400;700&family=Poppins:ital,wght@0,300;0,400;1,300&display=swap');
+      body {
+        font-family: {{design.font.name}}, {{design.font.family}};
+        background-image: url('http://localhost:8000/moroccan-flower-dark.webp');
+      }
+      #loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.8);
+            z-index: 9999;
+        }
+
+        .spinner {
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            border-top: 4px solid #3498db;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -20px;
+            margin-left: -20px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+#js code 
+
+<script>
+      
+  $(document).ready(function() {
+    $("#loading-overlay").fadeOut();
+    $('#content').show()
+});
+</script>
+
+#hero section 
+
+<div class="mx-5 position-relative" style="width: 100%; height: 400px">
+<img
+    src="{{hero_image}}"
+    alt=""
+    alt="Hero Image"
+    height="400px"
+    width="100%"
+    style="object-fit: cover; object-position: center"
+/>
+<div class="position-absolute top-50 start-50 translate-middle">
+    <h2 class="text-danger">{{title}}</h2>
+    <div class="text-danger">{{desc}}</div>
+    <div> [button_cpt] </div>
+</div>
+</div>
+
+# team section 
+
+<div class="my-5">
+    <h2 class="text-center fw-bold"> Our Team</h2>
+    <div class="row mx-5">
+        {% for team in teams %}
+            [team_card]
+        {% endfor %}
+    </div>
+</div>
+
+# about us section 
+
+<div>
+<h2 class="text-center"> About Me</h2>
+<div class="row mx-5 mt-4">
+    <div class="col-md-6">
+    <p>Name : {{name}}</p>
+    <p>Email : {{email}}</p>
+    </div>
+    <div class="col-md-6">
+    <img
+        src="{{about_image}}"
+        alt=""
+        class="img-fluid"
+        alt="About Us Image"
+    />
+    </div>
+</div>
+</div>
+
+
+# product card component 
+
+<div class="col-md-4 my-2">
+
+<div class="card">
+    <img src="{{product.product_image}}" class="card-img-top" alt="..." />
+    <div class="card-body">
+    <h5 class="card-title">{{product.product_name}}</h5>
+    <p class="card-text">{{product.product_price}}</p>
+    <p> {{product.product_desc}}
+    <a href="#" class="btn btn-primary"> Go Somewhere </a>
+    </div>
+</div>
+</div>

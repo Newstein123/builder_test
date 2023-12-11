@@ -25,4 +25,5 @@ class Template extends Model
     public function industry() {
         return $this->category->industry();
     }
+
 }

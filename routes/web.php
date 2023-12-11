@@ -79,7 +79,8 @@ Route::prefix('admin')->group(function () {
         Route::get('/', [SectionDataController::class, 'index'])->name('section.data.index');
         Route::get('component', [SectionDataController::class, 'section_components'])->name('section.data.component.index');
         Route::post('component', [SectionDataController::class, 'section_components_store'])->name('section.data.component.store');
-        Route::post('store', [SectionDataController::class, 'store'])->name('section.data.store');
+        Route::post('content/store', [SectionDataController::class, 'content_store'])->name('section.content.data.store');
+        Route::post('design/store', [SectionDataController::class, 'design_store'])->name('section.design.data.store');
     });
 
     // Cpt Design 
@@ -93,8 +94,8 @@ Route::prefix('admin')->group(function () {
     Route::prefix('component')->group(function () {
         Route::get('/', [ComponentController::class, 'index'])->name('component.index');
         Route::post('store', [ComponentController::class, 'store'])->name('component.store');
-        Route::post('fields/store', [ComponentController::class, 'cpt_fields_store'])->name('component.field.store');
-        Route::post('variables/store', [ComponentController::class, 'cpt_variables_store'])->name('component.variable.store');
+        Route::post('conent/store', [ComponentController::class, 'cpt_content_store'])->name('component.content.data.store');
+        Route::post('design/store', [ComponentController::class, 'cpt_design_store'])->name('component.design.data.store');
     });
 
     // Field 

@@ -32,9 +32,9 @@ const FieldModal = () => {
 
     function submit(e) {
         e.preventDefault();
-        router.post(route("component.field.store"), data, {
+        router.post(route("component.design.data.store"), data, {
             onSuccess: () => {
-                toast.success('Component Field Created Successfully')
+                toast.success('Design Created Successfully')
                 setCreateFieldVisible(false)
                 reset()
             },

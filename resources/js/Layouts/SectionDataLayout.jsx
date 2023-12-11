@@ -6,9 +6,11 @@ import { useContext } from "react";
 import FieldModal from "@/Pages/Backend/SectionData/FieldModal";
 import CreateFieldModal from "@/Pages/Backend/SectionData/CreateFieldModal";
 import CreateCptModal from "@/Pages/Backend/SectionData/CreateCptModal";
+import CreateDesignModal from "@/Pages/Backend/SectionData/CreateDesignModal";
+import DesignModal from "@/Pages/Backend/SectionData/DesignModal";
 
 const SectionDataLayout = ({ children}) => {
-    const {setVisibleField, setVisibleComponent, section_id} = useContext(SectionDataContext)
+    const {setVisibleField, setVisibleComponent,setVisibleCreateDesignModal, setVisibleDesign, section_id} = useContext(SectionDataContext)
     const {template_id} = usePage().props;
     return (
         <div className="m-10">
@@ -24,7 +26,13 @@ const SectionDataLayout = ({ children}) => {
                             className="text-green-800 me-3"
                             onClick={() => setVisibleField(true)}
                         >
-                            Add Fields
+                            Add Content Field 
+                        </button>
+                        <button
+                            className="text-green-800 me-3"
+                            onClick={() => setVisibleDesign(true)}
+                        >
+                            Add Design Field 
                         </button>
                         <button
                             className="text-green-800"
@@ -43,7 +51,7 @@ const SectionDataLayout = ({ children}) => {
                     </div>
                 </div>
 
-                {/* Create Field Modal  */}
+                {/*  Field Modal  */}
                 <FieldModal/>
 
                 {/* Create Section Modal  */}
@@ -51,6 +59,12 @@ const SectionDataLayout = ({ children}) => {
 
                 {/* Create Component Modal  */}
                 <CreateCptModal />
+
+                {/* Design Modal  */}
+                <DesignModal />
+
+                {/* Create Design Modal  */}
+                <CreateDesignModal />
                 {children}
         </div>
     );

@@ -50,9 +50,9 @@ const CptVarModal = () => {
 
     function submit(e) {
         e.preventDefault()
-        router.post(route('component.variable.store'), data, {
+        router.post(route('component.content.data.store'), data, {
             onSuccess : () => {
-                toast.success("Component Variable Created Successfully");
+                toast.success("Content Created Successfully");
                 setCreateVarVisible(false);
                 reset()
             },

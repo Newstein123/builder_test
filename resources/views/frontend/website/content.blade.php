@@ -39,6 +39,7 @@
                         <div>
                             {{-- Section Fields  --}}
                             @foreach ($section->fields as $field)
+                                @if ($field->data_type == "content")
                                 <div>
                                     <label for="{{$field->name}}"> {{$field->name}} </label>
                                     <input 
@@ -47,6 +48,7 @@
                                         value=""
                                     >
                                 </div>
+                                @endif
                             @endforeach
                             {{-- Components  --}}
                             <h3> Components </h3>
@@ -92,7 +94,8 @@
                                                 name="components[{{$cpt->component->value}}][0]"
                                                 value="{{$section->value}}"
                                             >
-                                            @foreach ($cpt->component->variables as $var)
+                                           
+                                            @foreach ($cpt->component->fields as $var)
                                                 <div>
                                                     
                                                     <label for="{{$var->name}}"> {{$var->name}} </label>
@@ -107,11 +110,18 @@
                                         </div>
                                     </div>
                                 @else
-                                    @foreach ($cpt->component->variables as $var)
+                                    <input 
+                                        type="hidden" 
+                                        name="components[{{$cpt->component->value}}][0]"
+                                        value="{{$section->value}}"
+                                    >
+                                    @foreach ($cpt->component->fields as $var)
+                                        @if ($var->data_type == "content")
                                         <div>
                                             <label for="{{$var->name}}"> {{$var->name}} </label>
-                                            <input type="{{$var->type}}" name="{{$var->value}}" class="form-control my-3">
+                                            <input type="{{$var->type}}" name="components[{{$cpt->component->value}}][1][{{$var->value}}]" class="form-control my-3">
                                         </div>
+                                        @endif
                                     @endforeach
                                 @endif
                             @endforeach
@@ -121,7 +131,7 @@
                         @endforeach
                     </div>
                     {{-- Section Tab Content Ends  --}}
-                  </div>
+                </div>
             <button type="submit" class="btn btn-success btn-sm"> Save </button>
             </form>
         </div>
@@ -129,7 +139,6 @@
 @endsection
 
 @section('script')
-
     <script>
         $(document).ready(function() {
             // Add New Button Click Event

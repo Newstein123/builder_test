@@ -43,10 +43,10 @@ const Index = ({cpt_designs, cpt_id, cpt_fields, cpt_vars}) => {
             </button>
             <div className="flex mt-3">
                 <button className="text-green-800 bg-slate-200 p-2 rounded-md me-2" onClick={handleAddField}>
-                    Add Fields
+                    Add Design Data
                 </button>
                 <button className="text-green-800  bg-slate-200 p-2 rounded-md" onClick={handleAddVariables}>
-                    Make Variables
+                    Add Content Data 
                 </button>
             </div>
         </div>
@@ -65,9 +65,9 @@ const Index = ({cpt_designs, cpt_id, cpt_fields, cpt_vars}) => {
     <h2 className="text-2xl font-bold mt-5"> Component Fields </h2>
     {/* Field Items  */}
     <FieldItem cpt_fields={cpt_fields} />
-
+{/* 
     <h2 className="text-2xl font-bold mt-5"> Component Variables  </h2>
-    <CptVarItems cpt_vars={cpt_vars} />
+    <CptVarItems cpt_vars={cpt_vars} /> */}
 
     {/* To show availiable field  */}
     <FieldModal />

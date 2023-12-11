@@ -11,7 +11,13 @@ const FieldItem = ({cpt_fields}) => {
                                 Name
                             </th>
                             <th scope="col" className="px-6 py-3">
+                                Value
+                            </th>
+                            <th scope="col" className="px-6 py-3">
                                 Type
+                            </th>
+                            <th scope="col" className="px-6 py-3">
+                                Data Type 
                             </th>
                             <th scope="col" className="px-6 py-3">
                                 <span className="sr-only">Edit</span>
@@ -32,7 +38,13 @@ const FieldItem = ({cpt_fields}) => {
                                         {item.name}
                                     </th>
                                     <td className="px-6 py-4">
+                                        {item.value}
+                                    </td>
+                                    <td className="px-6 py-4">
                                         {item.type}
+                                    </td>
+                                    <td className="px-6 py-4">
+                                        {item.data_type}
                                     </td>
                                     <td className="px-6 py-4 text-right">
                                         <a

@@ -17,8 +17,9 @@ return new class extends Migration
             $table->string('fieldable_type');
             $table->string('name');
             $table->string('value');
-            $table->string('option')->nullable();
+            $table->enum('data_type', ['content', 'design']);
             $table->enum('type', ['file', 'number', 'text', 'boolean', 'textarea', 'color', 'datetime']);
+            $table->string('option')->nullable();
             $table->string('default_value')->nullable();
             $table->boolean('required')->default(false);
             $table->json('validation')->nullable();

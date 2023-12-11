@@ -54,7 +54,7 @@ class SectionDataController extends Controller
         return redirect()->back();
     }
 
-    public function store(Request $request) {
+    public function content_store(Request $request) {
         $request->validate([
             'name' => 'required',
             'value' => 'required',
@@ -70,6 +70,30 @@ class SectionDataController extends Controller
                 'value' => $request->value,
                 'type' => $request->type,
                 'option' => $request->option,
+                'data_type' => 'content',
+            ]);
+        }
+
+        return redirect()->back();
+    }
+
+    public function design_store(Request $request) {
+        $request->validate([
+            'name' => 'required',
+            'value' => 'required',
+            'type' => 'required',
+            'section_id' => 'required',
+        ]);
+
+        $section = Section::find($request->section_id);
+
+        if($section) {
+            $section->fields()->create([
+                'name' => $request->name,
+                'value' => $request->value,
+                'type' => $request->type,
+                'option' => $request->option,
+                'data_type' => 'design',
             ]);
         }
 

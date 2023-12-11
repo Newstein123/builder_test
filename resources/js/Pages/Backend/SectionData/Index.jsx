@@ -36,6 +36,9 @@ const Index = ({section_fields }) => {
                                     Type
                                 </th>
                                 <th scope="col" className="px-6 py-3">
+                                    Data Type
+                                </th>
+                                <th scope="col" className="px-6 py-3">
                                     <span className="sr-only">Edit</span>
                                 </th>
                             </tr>
@@ -67,6 +70,9 @@ const Index = ({section_fields }) => {
                                         </td>
                                         <td className="px-6 py-4">
                                             {item.type}
+                                        </td>
+                                        <td className="px-6 py-4">
+                                            {item.data_type}
                                         </td>
                                         <td className="px-6 py-4 text-right">
                                             <a

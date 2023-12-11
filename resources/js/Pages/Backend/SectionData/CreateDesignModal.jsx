@@ -4,20 +4,20 @@ import { SectionDataContext } from "@/Context/SectionDataContext";
 import { router } from "@inertiajs/react";
 import {toast} from 'react-hot-toast'
 
-const CreateFieldModal = () => {
-    const {visibleCreateModal,setVisibleCreateModal,setVisibleField,  errors, data, setData, setErrors, reset} = useContext(SectionDataContext)
+const CreateDesignModal = () => {
+    const {visibleCreateDesignModal,setVisibleCreateDesignModal,setVisibleDesign,  errors, data, setData, setErrors, reset} = useContext(SectionDataContext)
     
     const handleChangeField =() => {
-        setVisibleCreateModal(false)
-        setVisibleField(true)
+        setVisibleCreateDesignModal(false)
+        setVisibleDesign(true)
     }
 
     function submit(e) {
         e.preventDefault();
-        router.post(route('section.content.data.store'), data, {
+        router.post(route('section.design.data.store'), data, {
             onSuccess : () => {
-                toast.success("Field Created Successfully");
-                setVisibleCreateModal(false)
+                toast.success("Design Data Created Successfully");
+                setVisibleCreateDesignModal(false)
                 reset();
             },
             onError : (err) => {
@@ -29,8 +29,8 @@ const CreateFieldModal = () => {
         
         <div>
             <Rodal
-                visible={visibleCreateModal}
-                onClose={() => setVisibleCreateModal(false)}
+                visible={visibleCreateDesignModal}
+                onClose={() => setVisibleCreateDesignModal(false)}
                 width={600}
                 height={500}
             >
@@ -153,4 +153,4 @@ const CreateFieldModal = () => {
     );
 };
 
-export default CreateFieldModal;
+export default CreateDesignModal;

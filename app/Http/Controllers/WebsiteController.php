@@ -66,6 +66,14 @@ class WebsiteController extends Controller
                         'name' => $section->value,
                         'website_id' => $website->id,
                     ]);
+
+                    foreach ($section->component_designs as $cpt_dsg) {
+                        ComponentsData::create([
+                            'name' => $cpt_dsg->component->value,
+                            'website_id' => $website->id,
+                            'section_name' => $section->value,
+                        ]);
+                    }
                 }
             });
         } catch (\Exception $e) {
@@ -98,20 +106,26 @@ class WebsiteController extends Controller
 
         // Sections Data
         foreach ($website->sections_data as $value) {
-            $sectionsData[$value->name] = json_decode($value->data, true) ?? [];
+            // first combine design and content data 
+            $combinedSecData = array_merge(json_decode($value->content_data, true), json_decode($value->design_data, true));
+            $sectionsData[$value->name] = $combinedSecData ?? [];
         }
+
         // Component Data in the section
         foreach ($components_data as $key => $value) {
             $section_name = $value->section_name;
             if (isset($sectionsData[$section_name])) {
-                // If the section already exists, merge the data
-                $sectionsData[$section_name] = array_merge($sectionsData[$section_name], [$value->name => json_decode($value->data, true)]);
+                // If the section already exists, merge the component data and section data
+                $cpt_design_data = $value->design_data;
+                $cpt_content_data = $value->content_data;
+                // first combine content and design data 
+                $combinedCptData = array_merge(json_decode($cpt_content_data, true), json_decode($cpt_design_data, true));
+                $sectionsData[$section_name] = array_merge($sectionsData[$section_name], [$value->name => $combinedCptData]);
             } else {
                 // If the section doesn't exist, create a new entry
                 $sectionsData[$section_name] = [$value->name => json_decode($value->data, true)];
             }
         }
-
         if ($website) {
             $sections = [];
             foreach ($template->sections as $key => $section) {
@@ -155,8 +169,7 @@ class WebsiteController extends Controller
         $website = Website::with([
             'template.sections.component_designs',
             'template.sections.fields'
-        ])->findOrFail($id);        
-
+        ])->findOrFail($id);  
         return view('frontend.website.content', compact('website'));
     }
     
@@ -165,20 +178,16 @@ class WebsiteController extends Controller
         $website = Website::findOrFail($id);
         $old_sections_data = $website->sections_data;
         $sections_data = $request->sections;
-        $components = $request->components;
-
+        $old_components_data = $website->components_data;
+        $components_data = $request->components;
         // Store components data 
         if(array_key_exists('components', $request->all())) {
-            if(count($components) > 0) {
-                foreach ($components as $cpt_name => $cpt_data) {
-                    $section_name = $cpt_data[0];// section id in array key 0
-                    Arr::forget($cpt_data, 0); // delete the section id 
-                    $new_cpt_data = array_values($cpt_data);
-    
-                    // check file exist and store the image 
-    
+            if(count($components_data) > 0) {
+                foreach ($old_components_data as $cpt) {
                     $new_cpt_data = [];
-                    foreach ($cpt_data as $cpt_card_data) {
+                    $section_name = $components_data[$cpt->name][0];// section id in array key 0
+                    Arr::forget($components_data[$cpt->name], 0); // delete the section id 
+                    foreach ($components_data[$cpt->name] as $cpt_card_data) {
                         $new_data = [];
                         foreach ($cpt_card_data as $var => $data) {
                             if ($data instanceof \Illuminate\Http\UploadedFile) {
@@ -191,12 +200,9 @@ class WebsiteController extends Controller
                         }
                         $new_cpt_data[] = $new_data;
                     }
-    
-                    ComponentsData::create([
-                        'name' => $cpt_name,
-                        'website_id' => $id,
-                        'section_name' => $section_name, 
-                        'data' => json_encode($new_cpt_data),
+                    // dd($new_cpt_data);
+                    $cpt->update([
+                        'content_data' => json_encode($new_cpt_data),
                     ]);
                 }
             }
@@ -214,7 +220,7 @@ class WebsiteController extends Controller
                 }
                 
                 $section->update([
-                    'data' => json_encode($sections_data[$section->name]),
+                    'content_data' => json_encode($sections_data[$section->name]),
                 ]);
             } 
         }
@@ -223,19 +229,45 @@ class WebsiteController extends Controller
     }
 
     public function design_edit($id) {
-        return view('frontend.website.design');
+        $website = Website::with([
+            'template.sections.component_designs',
+            'template.sections.fields'
+        ])->findOrFail($id);  
+        return view('frontend.website.design', compact('website'));
     }
 
     public function design_update(Request $request, $id) {
         $website = Website::findOrFail($id);
+        $old_sections_data = $website->sections_data;
+        $old_components_data = $website->components_data;
+        $sections_data = $request->sections;
+        $components_data = $request->components;
         $data = array(
             'color_pallet' => $request->color_pallet,
             'font' => $request->font,
         );
+
         $website->update([
             'design_data' => json_encode($data),
         ]);
-        
+
+        // Store Sections Data
+        foreach ($old_sections_data as $section) {
+            if(isset($sections_data[$section->name])) {
+                $section->update([
+                    'design_data' => json_encode($sections_data[$section->name]),
+                ]);
+            } 
+        }
+
+        // Store Section data 
+        foreach ($old_components_data as $cpt) {
+            if(isset($components_data[$cpt->name])) {
+                $cpt->update([
+                    'design_data' => json_encode($components_data[$cpt->name]),
+                ]);
+            } 
+        }
         return to_route('home');
     }
 }

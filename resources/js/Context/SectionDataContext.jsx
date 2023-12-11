@@ -50,13 +50,21 @@ const fieldData = [
       type : "boolean",
       options : [],
   },
+  {
+      id : 7,
+      name : "Color",
+      type : "color",
+      options : [],
+  },
 ]
 
 export const SectionDataProvider = ({ children }) => {
   const [visibleField, setVisibleField] = useState(false);
+  const [visibleDesign, setVisibleDesign] = useState(false);
   const [visibleComponent, setVisibleComponent] = useState(false);
   const [visibleCreateModal, setVisibleCreateModal] = useState(false);
   const [visibleCreateCptModal, setVisbileCreateCptModal] = useState(false)
+  const [visibleCreateDesignModal, setVisibleCreateDesignModal] = useState(false)
   const [errors, setErrors] = useState([]);
   const {section_id} = usePage().props;
   const { data, setData, reset } = useForm({
@@ -76,6 +84,8 @@ export const SectionDataProvider = ({ children }) => {
         setVisibleField,
         setVisibleCreateModal,
         setVisbileCreateCptModal,
+        setVisibleCreateDesignModal,
+        setVisibleDesign,
         setErrors,
         setData,
         reset,
@@ -84,6 +94,8 @@ export const SectionDataProvider = ({ children }) => {
         visibleComponent,
         visibleCreateModal,
         visibleCreateCptModal,
+        visibleCreateDesignModal,
+        visibleDesign,
         fieldData,
         data, 
         section_id,
