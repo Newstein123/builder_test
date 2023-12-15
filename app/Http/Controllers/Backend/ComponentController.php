@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers\Backend;
 
-use App\Http\Controllers\Controller;
+use Inertia\Inertia;
+use Twig\Environment;
+use App\Models\Website;
 use App\Models\Component;
+use Illuminate\Http\Request;
 use App\Models\ComponentDesign;
 use App\Models\ComponentVariable;
-use Illuminate\Http\Request;
-use Inertia\Inertia;
+use Twig\Loader\FilesystemLoader;
+use App\Http\Controllers\Controller;
 
 class ComponentController extends Controller
 {   
@@ -83,5 +86,25 @@ class ComponentController extends Controller
             ]);
         }
         return redirect()->back();
+    }
+
+    public function get_all_cpt_dsgs(Request $request) {
+        $loader = new FilesystemLoader();
+        $twig = new Environment($loader);
+        $cpt_name = $request->cpt_name;
+        $cpt = Component::with('designs')->where('value', $cpt_name)->first();
+        $cpt_dsgs = $cpt->designs;
+        $cpt_dsgs_content = [];
+
+        foreach ($cpt_dsgs as $key => $value) {
+            $twigTemplate = $twig->createTemplate($value->skeleton);
+            $finalOutput = $twigTemplate->render();
+            $cpt_dsgs_content[$value->id]  = $finalOutput;
+        }
+        
+        return response()->json([
+            'success' => true,
+            'data' => $cpt_dsgs_content,
+        ]);
     }
 }

@@ -37,7 +37,7 @@ const TemplateItems = ({templates}) => {
                                         className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
                                     >
                                         <Link
-                                            href={route("section.index", {
+                                            href={route("page.index", {
                                                 template_id: item.id,
                                             })}
                                         >

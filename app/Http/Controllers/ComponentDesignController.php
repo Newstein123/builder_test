@@ -33,11 +33,13 @@ class ComponentDesignController extends Controller
     public function store(Request $request) {
         $request->validate([
             'name' => 'required|unique:component_designs',
+            'value' => 'required|unique:component_designs',
             'component_id' => 'required',
         ]);
 
         ComponentDesign::create([
             'name' => $request->name,
+            'value' => $request->value,
             'component_id' => $request->component_id,
             'isShow' => $request->isShow == "yes" ? 1 : 0,
             'isPremium' => $request->isShow == "yes" ? 1 : 0,
@@ -51,6 +53,7 @@ class ComponentDesignController extends Controller
         if($cpt_design) {
             $cpt_design->update([
                 'content' => $request->content,
+                'skeleton' => $request->skeleton,
             ]);
         }
         return redirect()->back();

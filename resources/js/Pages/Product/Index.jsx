@@ -7,6 +7,7 @@ const Index = ({data}) => {
   const handleView = () => {
     setListView(!listView)
   }
+  
   return (
     <div>
         <h1 className="text-2xl font-bold"> My Products </h1>

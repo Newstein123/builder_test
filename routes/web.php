@@ -1,30 +1,39 @@
 <?php
 
+use App\Helper\MyHelper;
 use Inertia\Inertia;
+use Twig\Environment;
 use App\Models\Product;
 use App\Models\Template;
+use App\Models\SubIndustry;
+use Illuminate\Http\Request;
+use App\Models\ProductOption;
+use App\Models\ProductVariations;
+use Twig\Loader\FilesystemLoader;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Application;
 use App\Http\Controllers\TestController;
+use App\Http\Controllers\FieldController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\WebsiteController;
-use App\Http\Controllers\ItemCategoryController;
-use App\Http\Controllers\Frontend\HomeController;
-use App\Http\Controllers\Backend\TemplateController;
-use App\Http\Controllers\Backend\ComponentController;
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\ComponentDesignController;
-use App\Http\Controllers\FieldController;
-use App\Http\Controllers\IndustryController;
 use App\Http\Controllers\SectionController;
+use App\Http\Controllers\WebsiteController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\IndustryController;
 use App\Http\Controllers\SectionDataController;
 use App\Http\Controllers\SubIndustryController;
-use App\Models\SubIndustry;
-use Twig\Environment;
-use Twig\Loader\FilesystemLoader;
-
+use App\Http\Controllers\ItemCategoryController;
+use App\Http\Controllers\Frontend\HomeController;
+use App\Http\Controllers\ComponentDesignController;
+use App\Http\Controllers\Backend\TemplateController;
+use App\Http\Controllers\Backend\ComponentController;
+use App\Http\Controllers\PageController;
+use App\Http\Controllers\ProductVariationsController;
+use App\Models\OptionVariant;
+use App\Models\ProductVariatant;
+use App\Models\VariatantAttribute;
 
 /*
 |--------------------------------------------------------------------------
@@ -74,6 +83,9 @@ Route::get('/test/template', function () {
 });
 
 Route::prefix('admin')->group(function () {
+    // Pages 
+        Route::resource('page', PageController::class);
+
     // Section Data 
     Route::prefix('section-data')->group(function () {
         Route::get('/', [SectionDataController::class, 'index'])->name('section.data.index');
@@ -96,21 +108,26 @@ Route::prefix('admin')->group(function () {
         Route::post('store', [ComponentController::class, 'store'])->name('component.store');
         Route::post('conent/store', [ComponentController::class, 'cpt_content_store'])->name('component.content.data.store');
         Route::post('design/store', [ComponentController::class, 'cpt_design_store'])->name('component.design.data.store');
+        Route::get('cpt_designs', [ComponentController::class, 'get_all_cpt_dsgs'])->name('component.cpt_dsgs.all');
     });
 
     // Field 
 
     Route::delete('field/delete/{id}', [FieldController::class, 'delete'])->name('field.delete');
+    Route::get('field/show/{id}', [FieldController::class, 'show'])->name('field.show');
 });
 
 // My Website 
 // 
 Route::prefix('my-website')->group(function() {
-    Route::get('{id}', [WebsiteController::class, 'my_website'])->name('website.template');
     Route::get('content-edit/{id}', [WebsiteController::class, 'content_edit'])->name('website.content.edit');
     Route::post('content-edit/{id}', [WebsiteController::class, 'content_update'])->name('website.content.update');
     Route::get('design-edit/{id}', [WebsiteController::class, 'design_edit'])->name('website.design.edit');
     Route::post('design-edit/{id}', [WebsiteController::class, 'design_update'])->name('website.design.update');
+    Route::post('component-design/update', [WebsiteController::class, 'cpt_dsg_update'])->name('website.component-dsg.update');
+    Route::get('{id}', [WebsiteController::class, 'my_website'])->name('website.template');
+    Route::get('{id}/{page_name}', [WebsiteController::class, 'my_website'])->name('website.template');
+
 });
 
 // industry  
@@ -122,6 +139,7 @@ Route::resource('website', WebsiteController::class);
 // Route::get('my-website/{id}', [TestController::class, 'render_template']);
 Route::resource('category', ItemCategoryController::class);
 Route::resource('product', ProductController::class);
+Route::resource('product-variations', ProductVariationsController::class);
 Route::resource('admin/template', TemplateController::class);
 Route::post('admin/section-duplicate', [SectionController::class, 'duplicate_sections'])->name('section.duplicate');
 Route::resource('admin/section', SectionController::class);
@@ -261,6 +279,170 @@ Route::get('/website-data/test', function () {
 
 // Category 
 Route::post('/category/create', [CategoryController::class, 'store'])->name('category.create');
-Route::get('/test/pattern', function() {
-    return view('test.pattern');
+Route::get('/test/component/edit', function(Request $request) {
+    $loader = new FilesystemLoader();
+    $twig = new Environment($loader);
+    $cpt_name = 'team_card';
+    $website = App\Models\Website::find(5);
+    $cpt = App\Models\Component::with('designs')->where('value', $cpt_name)->first();
+    $cpt_dsgs = $cpt->designs;
+    $cpt_dsgs_content = [];
+
+    foreach ($cpt_dsgs as $key => $value) {
+       $twigTemplate = $twig->createTemplate($value->skeleton);
+       $finalOutput = $twigTemplate->render();
+       $cpt_dsgs_content[$value->id]  = $finalOutput;
+    }
 });
+
+Route::get('/test/component/update', function() {
+    $website = App\Models\Website::find(3);
+    $template = App\Models\Template::find($website->template_id);
+    $cpt_dsg = App\Models\ComponentDesign::find(3);
+});
+
+// Route::get('/test/products', function() {
+//     $options = [
+//         [
+//             'option' => 'color',
+//             'variants' => ['red', 'green', 'blue'],
+//         ],
+//         [
+//             'option' => 'size',
+//             'variants' => ['md', 'xl', 'sm'],
+//         ],
+//         [
+//             'option' => 'gender',
+//             'variants' => ['male', 'female'],
+//         ],
+//     ];
+
+
+//     $var = [];
+//     foreach ($options as $option) {
+//         $var[$option['option']] = $option['variants'];
+//     }
+
+//     $products = [];
+
+    
+//     $variatants = [
+//         [
+//             'color' =>   ['red', 'green', 'blue'],
+//         ],
+//         [
+//             'size' => ['md', 'xl', 'sm'],
+//         ],
+//         [
+//             'gender' => ['male', 'female'],
+//         ],
+//         [
+//             'material' => ['plastic', 'wood'],
+//         ]
+//     ];
+
+//     $products = [
+//         [
+//             'color' => 'red',
+//             'size' => 'md',
+//             'geneder' => 'male',
+//             'material' => 'wood'
+//         ],
+//         [
+//             'color' => 'red',
+//             'size' => 'md',
+//             'geneder' => 'female',
+//             'material' => 'wood'
+//         ],
+//         [
+//             'color' => 'red',
+//             'size' => 'lg',
+//             'geneder' => 'male',
+//             'material' => 'wood'
+//         ],
+//         [
+//             'color' => 'red',
+//             'size' => 'lg',
+//             'geneder' => 'female',
+//             'material' => 'wood'
+//         ],
+//         [
+//             'color' => 'red',
+//             'size' => 'sm',
+//             'geneder' => 'male',
+//             'material' => 'wood'
+//         ],
+//         [
+//             'color' => 'red',
+//             'size' => 'sm',
+//             'geneder' => 'female',
+//             'material' => 'wood'
+//         ],
+//         [
+//             'color' => 'red',
+//             'size' => 'md',
+//             'geneder' => 'male',
+//             'material' => 'plastic'
+//         ],
+//         [
+//             'color' => 'red',
+//             'size' => 'md',
+//             'geneder' => 'female',
+//             'material' => 'plastic'
+//         ],
+//         [
+//             'color' => 'red',
+//             'size' => 'lg',
+//             'geneder' => 'male',
+//             'material' => 'plastic'
+//         ],
+//         [
+//             'color' => 'red',
+//             'size' => 'lg',
+//             'geneder' => 'female',
+//             'material' => 'plastic'
+//         ],
+//         [
+//             'color' => 'red',
+//             'size' => 'sm',
+//             'geneder' => 'male',
+//             'material' => 'plastic'
+//         ],
+//         [
+//             'color' => 'red',
+//             'size' => 'sm',
+//             'geneder' => 'female',
+//             'material' => 'plastic'
+//         ],
+//     ];
+
+//     $combinations = [];
+
+//     dd((new MyHelper())->generateCombinations($options, $combinations));
+
+//     DB::transaction(function () use ($options) {
+//         $option_variatant = [];
+//         foreach ($options as $i) {
+
+//             $option = ProductOption::create([
+//                 'name' => $i['options'],
+//             ]);
+
+//             foreach ($i['variatants'] as $j) {
+//                 $var = ProductVariatant::create([
+//                     'name' => $j,
+//                 ]);
+
+//                 OptionVariant::create([
+//                     'option_id' => $option->id
+//                 ]);
+//             }
+//         };
+//     });
+
+    
+// });
+
+Route::get('/test/products', [TestController::class, 'product_var']);
+
+

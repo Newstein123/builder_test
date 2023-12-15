@@ -8,13 +8,13 @@ import Edit from "./Edit";
 import { SectionProvider } from "@/Context/SectionContext";
 import SectionItems from "./SectionItems";
 
-const Index = ({ sections, template_id, templates}) => {
+const Index = ({ sections, page_id, template_id ,templates}) => {
     const [visible, setVisible] = useState(false);
     const [dupSecVisible, setDupSecVisible] = useState(false);
     const [errors, setErrors] = useState([]);
     const { data, setData, reset} = useForm({
         name: "",
-        template_id: template_id,
+        page_id: page_id,
         isShow: "yes",
         value : "",
     });
@@ -48,7 +48,7 @@ const Index = ({ sections, template_id, templates}) => {
                 <div>
                     <h2 className="text-2xl font-bold"> All Sections </h2>
                     <button className="text-red-700">
-                        <Link href={route("template.index")}>Back</Link>
+                        <Link href={route("page.index", {template_id : template_id})}>Back</Link>
                     </button>
                 </div>
                 <div className="flex">
@@ -139,10 +139,10 @@ const Index = ({ sections, template_id, templates}) => {
             </Rodal>
 
             {/* Duplicate Section Modal  */}
-            <DuplicateSection 
+            {/* <DuplicateSection 
                 setDupSecVisible={setDupSecVisible}
                 dupSecVisible={dupSecVisible}
-            />
+            /> */}
 
             {/* Sections  */}
             <SectionItems 

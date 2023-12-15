@@ -1,0 +1,1 @@
+import{r as e,q as a,j as c,y as d}from"./app-8945b544.js";const l=e.createContext(null),x=({children:s})=>{const[o,t]=e.useState(!1),{template_id:i}=a().props,n=r=>{d.get(route("section.index"),{template_id:i,section_id:r},{onSuccess:()=>{t(!0)}})};return c.jsx(l.Provider,{value:{editVisible:o,setEditVisible:t,handleEdit:n},children:s})};export{x as S,l as a};

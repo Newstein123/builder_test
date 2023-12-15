@@ -14,8 +14,10 @@ return new class extends Migration
         Schema::create('component_designs', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('value');
             $table->foreignId('component_id')->constrained('components')->onDelete('cascade');
             $table->longText('content')->nullable()->comment('jsx content or htmlcontent');
+            $table->longText('skeleton')->nullable()->comment('jsx content or htmlcontent of skeleton structure');
             $table->boolean('isPremium')->default(false);
             $table->boolean('isShow')->default(true);
             $table->timestamps();

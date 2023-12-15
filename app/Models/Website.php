@@ -23,15 +23,19 @@ class Website extends Model
         return $this->hasMany(ComponentsData::class);
     }
 
-    public function sections() {
-        return $this->template->sections();
+    public function pages() {
+        return $this->template->pages();
     }
 
-    public function components() {
-        return $this->sections->components();
-    }
+    // public function sections() {
+    //     return $this->pages->sections();
+    // }
 
-    public function fields() {
-        return $this->sections->fields();
-    }
+    // public function components() {
+    //     return $this->sections->components();
+    // }
+
+    // public function fields() {
+    //     return $this->sections->fields();
+    // }
 }

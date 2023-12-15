@@ -1,6 +1,6 @@
 import { createContext } from "react";
 import { useState } from "react";
-import { useForm, usePage } from "@inertiajs/react";
+import { router, useForm, usePage } from "@inertiajs/react";
 
 export const SectionDataContext = createContext(null);
 
@@ -65,6 +65,7 @@ export const SectionDataProvider = ({ children }) => {
   const [visibleCreateModal, setVisibleCreateModal] = useState(false);
   const [visibleCreateCptModal, setVisbileCreateCptModal] = useState(false)
   const [visibleCreateDesignModal, setVisibleCreateDesignModal] = useState(false)
+  const [editFieldVisible, setEditFieldVisible] = useState(false)
   const [errors, setErrors] = useState([]);
   const {section_id} = usePage().props;
   const { data, setData, reset } = useForm({
@@ -76,6 +77,7 @@ export const SectionDataProvider = ({ children }) => {
       isShow: "no",
   });
 
+  
 
   return (
     <SectionDataContext.Provider
@@ -86,6 +88,7 @@ export const SectionDataProvider = ({ children }) => {
         setVisbileCreateCptModal,
         setVisibleCreateDesignModal,
         setVisibleDesign,
+        setEditFieldVisible,
         setErrors,
         setData,
         reset,
@@ -95,6 +98,7 @@ export const SectionDataProvider = ({ children }) => {
         visibleCreateModal,
         visibleCreateCptModal,
         visibleCreateDesignModal,
+        editFieldVisible,
         visibleDesign,
         fieldData,
         data, 

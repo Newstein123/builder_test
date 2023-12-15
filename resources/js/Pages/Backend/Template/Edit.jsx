@@ -3,7 +3,6 @@ import React from "react";
 import { useContext } from "react";
 import Rodal from "rodal";
 import { router, useForm, usePage } from "@inertiajs/react";
-import CodeEditor from "@uiw/react-textarea-code-editor";
 import './app.css'
 import { useState } from "react";
 import toast from "react-hot-toast";

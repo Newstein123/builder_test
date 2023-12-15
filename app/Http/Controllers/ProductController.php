@@ -14,35 +14,50 @@ class ProductController extends Controller
         $page = 1;
         $perpage = 10;
         $products = Product::latest('id')->skip(($page - 1) * $perpage)->take($perpage)->get();
-        $products_resource = ProductResource::collection($products);
-        return Inertia::render('Product/Index', [
-            'data' => $products_resource,
-        ]);
+        // return Inertia::render('Product/Index', [
+        //     'data' => $products_resource,
+        // ]);
+        return view('frontend.product.index', compact('products'));
     }
 
-    public function create() {
+    public function create(Request $request) {
         $categories = ItemCategory::all();
-        return Inertia::render('Product/Create', [
-            'cats' => $categories,
-        ]);
+        // return Inertia::render('Product/Create', [
+        //     'cats' => $categories,
+        // ]);
+        $product_id = $request->product_id;
+        if($product_id) {
+            $product = Product::findOrFail($product_id);
+        } else {
+            $product = Product::create([]);
+        }
+        return view('frontend.product.create', compact('product'));
     }
 
     public function store(Request $request) {
-        $name = $request->name;
-        $price = $request->price;
-        $quantity  = $request->quantity;
-    $variations = json_encode($request->variations);
-        $desc = $request->description;
-        $category_id = $request->category_id;
-        Product::create([
-            'user_id' => 1,
+        $product = Product::findOrFail($request->product_id);
+        $name = $request->name ?? 'Untitled Name';
+        $price = $request->price ?? 0;
+        $stock  = $request->stock ?? 0;
+        $desc = $request->description ?? '';
+        $category_id = $request->category_id ?? null;
+        $additional_info = $request->additional_info ?? [];
+        $currency = $request->currency ?? 'mmk';
+        $tags = $request->tags ?? [];
+        $visibility = $request->visibility ?? 0;
+
+        $product->update([
             'name' => $name,
             'price' => $price,
-            'quantity' => $quantity,
-            'variations' => $variations,
+            'stock' => $stock,
             'description' => $desc,
             'category_id' => $category_id,
+            'tags' => json_encode($tags), 
+            'additional_info' => $additional_info,
+            'currency' => $currency,
+            'visibility' => $visibility,
         ]);
-        return to_route('product.index')->with('message', 'Product Created Successfully');
+
+        return redirect()->route('product.index')->with('message', 'Saved');
     }
 }

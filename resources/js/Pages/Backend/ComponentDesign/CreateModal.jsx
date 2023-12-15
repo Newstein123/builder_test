@@ -11,6 +11,7 @@ const CreateModal = ({cpt_id}) => {
     const [errors, setErrors] = useState([]);
     const { data, setData } = useForm({
         name: "",
+        value : '',
         isShow: "no",
         isPremium: "no",
         component_id : cpt_id
@@ -50,6 +51,19 @@ const CreateModal = ({cpt_id}) => {
                     </div>
                     {errors.name && (
                         <div className="text-red-700 my-3"> {errors.name} </div>
+                    )}
+                    {/* value  */}
+                    <div className="my-3">
+                        <div className="my-3">
+                            <label htmlFor=""> Enter Variable Name </label>
+                        </div>
+                        <input
+                            className="p-2 rounded-md w-full"
+                            onChange={(e) => setData("value", e.target.value)}
+                        />
+                    </div>
+                    {errors.value && (
+                        <div className="text-red-700 my-3"> {errors.value} </div>
                     )}
                     {/* isShow  */}
                     <div className="my-3">

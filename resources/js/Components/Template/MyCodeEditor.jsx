@@ -4,7 +4,6 @@ import CodeEditor from "@uiw/react-textarea-code-editor";
 
 
 const MyCodeEditor = ({name, value, setData, data, lang}) => {
-    console.log(name);
     const codeEditorStyle = {
         fontSize: 12,
         backgroundColor: "#000",

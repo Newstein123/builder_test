@@ -13,6 +13,9 @@ const Items = ({cpt_designs}) => {
                             Name
                         </th>
                         <th scope="col" className="px-6 py-3">
+                            Variable Name
+                        </th>
+                        <th scope="col" className="px-6 py-3">
                             Published
                         </th>
                         <th scope="col" className="px-6 py-3">
@@ -36,6 +39,9 @@ const Items = ({cpt_designs}) => {
                                 >
                                     {item.name}
                                 </th>
+                                <td className="px-6 py-4">
+                                    {item.value}
+                                </td>
                                 <td className="px-6 py-4">
                                     {item.isShow == 0 ? "No" : "Yes"}
                                 </td>

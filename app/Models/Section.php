@@ -18,4 +18,8 @@ class Section extends Model
     public function component_designs() {
         return $this->belongsToMany(ComponentDesign::class, 'component_sections', 'section_id', 'component_design_id');
     }
+
+    public function pages() {
+        return $this->belongsToMany(Page::class);
+    }
 }

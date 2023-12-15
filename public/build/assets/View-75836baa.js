@@ -1,0 +1,8 @@
+import{r as h,R as i,j as P,y}from"./app-8945b544.js";const $=({data:a,templateStructure:r,products:d,count:s})=>{const[c,p]=h.useState(1),g=Math.ceil(s/5),m=t=>{p(t),y.get("/test/template",{page:c})},f=(t,n)=>t.replace(/{{\s*(\w+)\s*}}/g,(l,o)=>n.hasOwnProperty(o)?n[o]:l),x=t=>{const n=(c-1)*5,l=n+5;return t.slice(n,l),t.map(o=>`<div key="${o.id}" style="border: 1px solid #ddd; border-radius: 8px; overflow: hidden; margin-bottom: 20px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); background-color: #fff;">
+             <img src="${o.image}" alt="${o.name}" style="width: 100%; height: auto; max-height: 200px; object-fit: cover;">
+             <div style="padding: 16px;">
+               <h3 style="font-size: 1.5rem; margin-bottom: 8px;">${o.name}</h3>
+               <p style="color: #555; margin-bottom: 12px;">${o.quantity}</p>
+               <span style="font-weight: bold; font-size: 1.25rem; color: #e44d26;">${o.price}</span>
+             </div>
+           </div>`)},u=f(r,{...Object.keys(a).reduce((t,n)=>(t[`${n}`]=a[n],t),{}),product_section:x(d)}),b=i.createElement(v,{totalPages:g,currentPage:c,onPageChange:m});return P.jsxs("div",{children:[i.createElement("div",{dangerouslySetInnerHTML:{__html:u}}),b]})},v=({totalPages:a,currentPage:r,onPageChange:d})=>{const s=[];for(let e=1;e<=a;e++)s.push(i.createElement("button",{key:e,onClick:()=>d(e),className:r===e?"active":"pagination-button",style:{margin:"2px",padding:"5px 10px",backgroundColor:r===e?"#007bff":"#fff",color:r===e?"#fff":"#007bff",border:"1px solid #007bff",borderRadius:"5px",cursor:"pointer"}},e));return i.createElement("div",{className:"pagination"},s)};export{v as Pagination,$ as default};

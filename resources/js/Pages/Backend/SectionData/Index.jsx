@@ -1,12 +1,14 @@
 import FrontendLayout from "@/Layouts/FrontendLayout";
 import { Toaster, toast } from "react-hot-toast";
-import { Link, router } from "@inertiajs/react";
-import { SectionDataProvider } from "@/Context/SectionDataContext";
+import { Link, router, usePage } from "@inertiajs/react";
+import { SectionDataContext, SectionDataProvider } from "@/Context/SectionDataContext";
 import SectionDataLayout from "@/Layouts/SectionDataLayout";
+import { useContext } from "react";
 
 
 const Index = ({section_fields }) => {
-
+    const {setEditFieldVisible} = useContext(SectionDataContext)
+    const {section_id} = usePage().props;
     const handleDelete  = (id) => {
         router.delete(route('field.delete', {id : id}), {
             onSuccess : () => {
@@ -17,6 +19,18 @@ const Index = ({section_fields }) => {
             }
         });
     }
+
+    const handleEditField = (id) => {
+        router.get(route('section.data.index'), {field_id : id, section_id : section_id}, {
+            preserveState : false,
+            onSuccess : () => {
+                setEditFieldVisible(true)
+            },
+            onError : (err) => {
+            console.log(err)
+            }
+        });
+        }
     return (
         <div>
             <div className="m-10">
@@ -75,12 +89,12 @@ const Index = ({section_fields }) => {
                                             {item.data_type}
                                         </td>
                                         <td className="px-6 py-4 text-right">
-                                            <a
-                                                href="#"
+                                            <button
                                                 className="font-medium text-blue-600 dark:text-blue-500 hover:underline me-3"
+                                                onClick={() => handleEditField(item.id)}
                                             >
                                                 Edit
-                                            </a>
+                                            </button>
                                             <button 
                                                 type="button"
                                                 className="font-medium text-red-600 dark:text-red-500 hover:underline"

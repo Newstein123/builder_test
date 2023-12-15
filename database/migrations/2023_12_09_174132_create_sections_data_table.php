@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('website_id')->constrained('websites')->onDelete('cascade');
             $table->string('name');
+            $table->string('page_name');
             $table->json('content_data')->nullable();
             $table->json('design_data')->nullable();
             $table->timestamps();

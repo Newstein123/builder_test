@@ -14,7 +14,7 @@ const SideBar = () => {
         <Link href={route('category.create')}> Create Category  </Link>
       </div>
       <div className='p-3'>
-        <Link href={route('product.index')}> Products  </Link>
+        <a href={route('product.index')}> Products  </a>
       </div>
       <div className='p-3'>
         <Link href={route('template.index')}> Template  </Link>

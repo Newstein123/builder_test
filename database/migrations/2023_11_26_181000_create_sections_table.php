@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('sections', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('template_id')->constrained('templates')->onDelete('cascade');
             $table->string('name');
             $table->string('value');
             $table->longText('content')->nullable();

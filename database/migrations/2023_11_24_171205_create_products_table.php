@@ -7,23 +7,26 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration
 {
     /**
-     * Run the migrations.
+     * Run the migrations.s
      */
     public function up(): void
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('website_id')->constrained('websites')->onDelete('cascade');
-            $table->foreignId('category_id')->constrained('item_categories')->onDelete('cascade');
-            $table->string('name');
-            $table->text('description');
-            $table->json('variations')->comment('variations for details data');
-            $table->integer('price')->default(1000);
+            $table->foreignId('website_id')->nullable()->constrained('websites')->onDelete('cascade');
+            $table->foreignId('category_id')->nullable()->constrained('item_categories')->onDelete('cascade');
+            $table->string('name')->default('Untitled Name');
+            $table->text('description')->nullable();
+            $table->json('additional_info')->nullable()->comment('for more custom blocks and fields');
+            $table->integer('price')->default(0);
+            $table->json('tags')->nullable();
+            $table->integer('sale_price')->default(0);
             $table->string('currency')->default('mmk');
-            $table->integer('quantity')->default(10);
+            $table->integer('stock')->default(10);
             $table->integer('likes')->default(0);
             $table->integer('views')->default(0);
-            $table->json('gallery')->nullable();
+            $table->boolean('visibility')->default(0);
+            $table->json('variations')->nullable()->comment('option and variatants');
             $table->timestamps();
         });
     }

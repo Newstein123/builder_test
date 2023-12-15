@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Rodal from "rodal";
 import { router, useForm } from "@inertiajs/react";
-import toast from "react-hot-toast";
+import {toast} from "react-hot-toast";
 
 const CreateModal = ({ cModalVisible, setCModalVisible }) => {
     const [errors, setErrors] = useState([]);

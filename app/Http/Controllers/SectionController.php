@@ -13,35 +13,41 @@ use Illuminate\Support\Facades\DB;
 class SectionController extends Controller
 {
     public function index(Request $request) {
-        $template_id = $request->template_id;
+        $page_id = $request->page_id;
         $section_id = $request->section_id;
+        
         if($section_id) {
             $section = Section::find($section_id);
         }
 
-        $templates = Template::with('sections')->get();
-        $sections = Section::where('template_id', $template_id)->get();
+        // $templates = Template::with('sections')->get();
+        $sections = Section::with('pages')->whereHas('pages', function($q) use($page_id) {
+            $q->where('page_id', $page_id);
+        })->get();
+
         return Inertia::render('Backend/Section/Index', [
             'sections' => $sections,
-            'template_id' => $template_id,
-            'templates'   => $templates,
+            'page_id' => $page_id,
+            // 'templates'   => $templates,
             'section' => $section ?? "",
+            'template_id' => $request->template_id
         ]);
     }
 
     public function store(Request $request) {
         $request->validate([
-            'name' => 'required|unique:sections',
-            'template_id' => 'required',
+            'name' => 'required',
+            'page_id' => 'required',
             'value' => 'required',
         ]);
 
-        Section::create([
+        $section = Section::create([
             'name' => $request->name,
-            'template_id' => $request->template_id,
-            'isShow' => $request->isShow == 'yes' ? 1 : 0,
             'value' => $request->value,
+            'isShow' => $request->isShow == 'yes' ? 1 : 0,
         ]);
+
+        $section->pages()->attach($request->page_id);
 
         return redirect()->back();
     }

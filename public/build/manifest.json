@@ -1,122 +1,124 @@
 {
-  "_ApplicationLogo-4afcf673.js": {
-    "file": "assets/ApplicationLogo-4afcf673.js",
+  "_ApplicationLogo-24eb4423.js": {
+    "file": "assets/ApplicationLogo-24eb4423.js",
     "imports": [
       "resources/js/app.jsx"
     ]
   },
-  "_AuthenticatedLayout-bf030496.js": {
-    "file": "assets/AuthenticatedLayout-bf030496.js",
+  "_AuthenticatedLayout-72440d9e.js": {
+    "file": "assets/AuthenticatedLayout-72440d9e.js",
     "imports": [
       "resources/js/app.jsx",
-      "_ApplicationLogo-4afcf673.js",
-      "_transition-9ee16c42.js"
+      "_ApplicationLogo-24eb4423.js",
+      "_transition-0aec619a.js"
     ]
   },
-  "_ComponentContext-c3d16086.js": {
-    "file": "assets/ComponentContext-c3d16086.js",
+  "_ComponentContext-ffa80ff9.js": {
+    "file": "assets/ComponentContext-ffa80ff9.js",
     "imports": [
       "resources/js/app.jsx"
     ]
   },
-  "_CreateField-0a9cbafd.js": {
-    "file": "assets/CreateField-0a9cbafd.js",
+  "_CreateField-a32ad181.js": {
+    "file": "assets/CreateField-a32ad181.js",
     "imports": [
       "resources/js/app.jsx",
-      "_rodal.esm-d2914f86.js"
+      "_rodal.esm-e9de0cc2.js"
     ],
     "isDynamicEntry": true
   },
-  "_FrontendLayout-00f3f7bc.js": {
-    "file": "assets/FrontendLayout-00f3f7bc.js",
+  "_FrontendLayout-365e4934.js": {
+    "file": "assets/FrontendLayout-365e4934.js",
     "imports": [
       "resources/js/app.jsx"
     ]
   },
-  "_GuestLayout-a3876e57.js": {
-    "file": "assets/GuestLayout-a3876e57.js",
+  "_GuestLayout-1b1fd450.js": {
+    "file": "assets/GuestLayout-1b1fd450.js",
     "imports": [
       "resources/js/app.jsx",
-      "_ApplicationLogo-4afcf673.js"
+      "_ApplicationLogo-24eb4423.js"
     ]
   },
-  "_InputLabel-bf706e2a.js": {
-    "file": "assets/InputLabel-bf706e2a.js",
+  "_InputLabel-f3af3165.js": {
+    "file": "assets/InputLabel-f3af3165.js",
     "imports": [
       "resources/js/app.jsx"
     ]
   },
-  "_MyCodeEditor-a08b0bc4.js": {
-    "file": "assets/MyCodeEditor-a08b0bc4.js",
+  "_MyCodeEditor-2a05645c.js": {
+    "file": "assets/MyCodeEditor-2a05645c.js",
     "imports": [
       "resources/js/app.jsx",
-      "_index-f0c49e0f.js"
+      "_index-aed679ba.js"
     ]
   },
-  "_PrimaryButton-1cd50334.js": {
-    "file": "assets/PrimaryButton-1cd50334.js",
+  "_PrimaryButton-a29a2942.js": {
+    "file": "assets/PrimaryButton-a29a2942.js",
     "imports": [
       "resources/js/app.jsx"
     ]
   },
-  "_SectionContext-5bc09601.js": {
-    "file": "assets/SectionContext-5bc09601.js",
+  "_SectionContext-ab85eef9.js": {
+    "file": "assets/SectionContext-ab85eef9.js",
     "imports": [
       "resources/js/app.jsx"
     ]
   },
-  "_SectionDataContext-162d67fc.js": {
-    "file": "assets/SectionDataContext-162d67fc.js",
+  "_SectionDataContext-6a34eaf6.js": {
+    "file": "assets/SectionDataContext-6a34eaf6.js",
     "imports": [
       "resources/js/app.jsx"
     ]
   },
-  "_SectionDataLayout-58666971.js": {
-    "file": "assets/SectionDataLayout-58666971.js",
+  "_SectionDataLayout-409662c4.js": {
+    "file": "assets/SectionDataLayout-409662c4.js",
     "imports": [
       "resources/js/app.jsx",
-      "_index-f7f45ee6.js",
-      "_SectionDataContext-162d67fc.js",
+      "_index-f85fabbe.js",
+      "_SectionDataContext-6a34eaf6.js",
       "resources/js/Pages/Backend/SectionData/FieldModal.jsx",
       "resources/js/Pages/Backend/SectionData/CreateFieldModal.jsx",
-      "resources/js/Pages/Backend/SectionData/CreateCptModal.jsx"
+      "resources/js/Pages/Backend/SectionData/CreateCptModal.jsx",
+      "resources/js/Pages/Backend/SectionData/CreateDesignModal.jsx",
+      "resources/js/Pages/Backend/SectionData/DesignModal.jsx"
     ]
   },
-  "_TemplateContext-0c34052b.js": {
-    "file": "assets/TemplateContext-0c34052b.js",
+  "_TemplateContext-5ed84d33.js": {
+    "file": "assets/TemplateContext-5ed84d33.js",
     "imports": [
       "resources/js/app.jsx"
     ]
   },
-  "_TextInput-6ab4e0a2.js": {
-    "file": "assets/TextInput-6ab4e0a2.js",
+  "_TextInput-fc2d0338.js": {
+    "file": "assets/TextInput-fc2d0338.js",
     "imports": [
       "resources/js/app.jsx"
     ]
   },
-  "_index-f0c49e0f.js": {
+  "_index-aed679ba.js": {
     "css": [
       "assets/index-1e521ea9.css"
     ],
-    "file": "assets/index-f0c49e0f.js",
+    "file": "assets/index-aed679ba.js",
     "imports": [
       "resources/js/app.jsx"
     ]
   },
-  "_index-f7f45ee6.js": {
-    "file": "assets/index-f7f45ee6.js",
+  "_index-f85fabbe.js": {
+    "file": "assets/index-f85fabbe.js",
     "imports": [
       "resources/js/app.jsx"
     ]
   },
-  "_rodal.esm-d2914f86.js": {
-    "file": "assets/rodal.esm-d2914f86.js",
+  "_rodal.esm-e9de0cc2.js": {
+    "file": "assets/rodal.esm-e9de0cc2.js",
     "imports": [
       "resources/js/app.jsx"
     ]
   },
-  "_transition-9ee16c42.js": {
-    "file": "assets/transition-9ee16c42.js",
+  "_transition-0aec619a.js": {
+    "file": "assets/transition-0aec619a.js",
     "imports": [
       "resources/js/app.jsx"
     ]
@@ -126,82 +128,82 @@
     "src": "index.css"
   },
   "resources/js/Pages/Auth/ConfirmPassword.jsx": {
-    "file": "assets/ConfirmPassword-067e410e.js",
+    "file": "assets/ConfirmPassword-2c149321.js",
     "imports": [
       "resources/js/app.jsx",
-      "_GuestLayout-a3876e57.js",
-      "_TextInput-6ab4e0a2.js",
-      "_InputLabel-bf706e2a.js",
-      "_PrimaryButton-1cd50334.js",
-      "_ApplicationLogo-4afcf673.js"
+      "_GuestLayout-1b1fd450.js",
+      "_TextInput-fc2d0338.js",
+      "_InputLabel-f3af3165.js",
+      "_PrimaryButton-a29a2942.js",
+      "_ApplicationLogo-24eb4423.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Auth/ConfirmPassword.jsx"
   },
   "resources/js/Pages/Auth/ForgotPassword.jsx": {
-    "file": "assets/ForgotPassword-9dd490fb.js",
+    "file": "assets/ForgotPassword-5333e935.js",
     "imports": [
       "resources/js/app.jsx",
-      "_GuestLayout-a3876e57.js",
-      "_TextInput-6ab4e0a2.js",
-      "_PrimaryButton-1cd50334.js",
-      "_ApplicationLogo-4afcf673.js"
+      "_GuestLayout-1b1fd450.js",
+      "_TextInput-fc2d0338.js",
+      "_PrimaryButton-a29a2942.js",
+      "_ApplicationLogo-24eb4423.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Auth/ForgotPassword.jsx"
   },
   "resources/js/Pages/Auth/Login.jsx": {
-    "file": "assets/Login-1eb565a9.js",
+    "file": "assets/Login-8c0a0447.js",
     "imports": [
       "resources/js/app.jsx",
-      "_GuestLayout-a3876e57.js",
-      "_TextInput-6ab4e0a2.js",
-      "_InputLabel-bf706e2a.js",
-      "_PrimaryButton-1cd50334.js",
-      "_ApplicationLogo-4afcf673.js"
+      "_GuestLayout-1b1fd450.js",
+      "_TextInput-fc2d0338.js",
+      "_InputLabel-f3af3165.js",
+      "_PrimaryButton-a29a2942.js",
+      "_ApplicationLogo-24eb4423.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Auth/Login.jsx"
   },
   "resources/js/Pages/Auth/Register.jsx": {
-    "file": "assets/Register-0673974e.js",
+    "file": "assets/Register-5577162a.js",
     "imports": [
       "resources/js/app.jsx",
-      "_GuestLayout-a3876e57.js",
-      "_TextInput-6ab4e0a2.js",
-      "_InputLabel-bf706e2a.js",
-      "_PrimaryButton-1cd50334.js",
-      "_ApplicationLogo-4afcf673.js"
+      "_GuestLayout-1b1fd450.js",
+      "_TextInput-fc2d0338.js",
+      "_InputLabel-f3af3165.js",
+      "_PrimaryButton-a29a2942.js",
+      "_ApplicationLogo-24eb4423.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Auth/Register.jsx"
   },
   "resources/js/Pages/Auth/ResetPassword.jsx": {
-    "file": "assets/ResetPassword-b2f633fc.js",
+    "file": "assets/ResetPassword-5d3b7862.js",
     "imports": [
       "resources/js/app.jsx",
-      "_GuestLayout-a3876e57.js",
-      "_TextInput-6ab4e0a2.js",
-      "_InputLabel-bf706e2a.js",
-      "_PrimaryButton-1cd50334.js",
-      "_ApplicationLogo-4afcf673.js"
+      "_GuestLayout-1b1fd450.js",
+      "_TextInput-fc2d0338.js",
+      "_InputLabel-f3af3165.js",
+      "_PrimaryButton-a29a2942.js",
+      "_ApplicationLogo-24eb4423.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Auth/ResetPassword.jsx"
   },
   "resources/js/Pages/Auth/VerifyEmail.jsx": {
-    "file": "assets/VerifyEmail-66ceec80.js",
+    "file": "assets/VerifyEmail-a532600c.js",
     "imports": [
       "resources/js/app.jsx",
-      "_GuestLayout-a3876e57.js",
-      "_PrimaryButton-1cd50334.js",
-      "_ApplicationLogo-4afcf673.js"
+      "_GuestLayout-1b1fd450.js",
+      "_PrimaryButton-a29a2942.js",
+      "_ApplicationLogo-24eb4423.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Auth/VerifyEmail.jsx"
   },
   "resources/js/Pages/Backend/ComponentDesign/CptVarItems.jsx": {
-    "file": "assets/CptVarItems-e551269d.js",
+    "file": "assets/CptVarItems-d7c9dd41.js",
     "imports": [
       "resources/js/app.jsx"
     ],
@@ -209,62 +211,62 @@
     "src": "resources/js/Pages/Backend/ComponentDesign/CptVarItems.jsx"
   },
   "resources/js/Pages/Backend/ComponentDesign/CptVarModal.jsx": {
-    "file": "assets/CptVarModal-5379baca.js",
+    "file": "assets/CptVarModal-3dbc4677.js",
     "imports": [
       "resources/js/app.jsx",
-      "_ComponentContext-c3d16086.js",
-      "_rodal.esm-d2914f86.js",
+      "_ComponentContext-ffa80ff9.js",
+      "_rodal.esm-e9de0cc2.js",
       "resources/js/Pages/Backend/ComponentDesign/CreateCptVarModal.jsx",
-      "_index-f7f45ee6.js"
+      "_index-f85fabbe.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Backend/ComponentDesign/CptVarModal.jsx"
   },
   "resources/js/Pages/Backend/ComponentDesign/CreateCptVarModal.jsx": {
-    "file": "assets/CreateCptVarModal-f6ab7b80.js",
+    "file": "assets/CreateCptVarModal-f9061984.js",
     "imports": [
       "resources/js/app.jsx",
-      "_ComponentContext-c3d16086.js",
-      "_rodal.esm-d2914f86.js"
+      "_ComponentContext-ffa80ff9.js",
+      "_rodal.esm-e9de0cc2.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Backend/ComponentDesign/CreateCptVarModal.jsx"
   },
   "resources/js/Pages/Backend/ComponentDesign/CreateFieldModal.jsx": {
-    "file": "assets/CreateFieldModal-833ebb39.js",
+    "file": "assets/CreateFieldModal-e62d9e07.js",
     "imports": [
       "resources/js/app.jsx",
-      "_ComponentContext-c3d16086.js",
-      "_rodal.esm-d2914f86.js"
+      "_ComponentContext-ffa80ff9.js",
+      "_rodal.esm-e9de0cc2.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Backend/ComponentDesign/CreateFieldModal.jsx"
   },
   "resources/js/Pages/Backend/ComponentDesign/CreateModal.jsx": {
-    "file": "assets/CreateModal-56170d35.js",
+    "file": "assets/CreateModal-67e1f3c3.js",
     "imports": [
       "resources/js/app.jsx",
-      "_rodal.esm-d2914f86.js",
-      "_ComponentContext-c3d16086.js"
+      "_rodal.esm-e9de0cc2.js",
+      "_ComponentContext-ffa80ff9.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Backend/ComponentDesign/CreateModal.jsx"
   },
   "resources/js/Pages/Backend/ComponentDesign/Edit.jsx": {
-    "file": "assets/Edit-cf9e8e47.js",
+    "file": "assets/Edit-4f9b0d02.js",
     "imports": [
       "resources/js/app.jsx",
-      "_rodal.esm-d2914f86.js",
-      "_MyCodeEditor-a08b0bc4.js",
-      "_index-f7f45ee6.js",
-      "_ComponentContext-c3d16086.js",
-      "_index-f0c49e0f.js"
+      "_rodal.esm-e9de0cc2.js",
+      "_MyCodeEditor-2a05645c.js",
+      "_index-f85fabbe.js",
+      "_ComponentContext-ffa80ff9.js",
+      "_index-aed679ba.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Backend/ComponentDesign/Edit.jsx"
   },
   "resources/js/Pages/Backend/ComponentDesign/FieldItem.jsx": {
-    "file": "assets/FieldItem-de4b4f24.js",
+    "file": "assets/FieldItem-29e3dad9.js",
     "imports": [
       "resources/js/app.jsx"
     ],
@@ -272,94 +274,93 @@
     "src": "resources/js/Pages/Backend/ComponentDesign/FieldItem.jsx"
   },
   "resources/js/Pages/Backend/ComponentDesign/FieldModal.jsx": {
-    "file": "assets/FieldModal-079d2add.js",
+    "file": "assets/FieldModal-87be3d71.js",
     "imports": [
       "resources/js/app.jsx",
-      "_ComponentContext-c3d16086.js",
-      "_rodal.esm-d2914f86.js",
+      "_ComponentContext-ffa80ff9.js",
+      "_rodal.esm-e9de0cc2.js",
       "resources/js/Pages/Backend/ComponentDesign/CreateFieldModal.jsx",
-      "_index-f7f45ee6.js"
+      "_index-f85fabbe.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Backend/ComponentDesign/FieldModal.jsx"
   },
   "resources/js/Pages/Backend/ComponentDesign/Index.jsx": {
-    "file": "assets/Index-888f462b.js",
+    "file": "assets/Index-ca742526.js",
     "imports": [
       "resources/js/app.jsx",
-      "_FrontendLayout-00f3f7bc.js",
-      "_index-f7f45ee6.js",
+      "_FrontendLayout-365e4934.js",
+      "_index-f85fabbe.js",
       "resources/js/Pages/Backend/ComponentDesign/Items.jsx",
       "resources/js/Pages/Backend/ComponentDesign/CreateModal.jsx",
       "resources/js/Pages/Backend/ComponentDesign/FieldModal.jsx",
-      "_ComponentContext-c3d16086.js",
+      "_ComponentContext-ffa80ff9.js",
       "resources/js/Pages/Backend/ComponentDesign/FieldItem.jsx",
-      "resources/js/Pages/Backend/ComponentDesign/CptVarItems.jsx",
       "resources/js/Pages/Backend/ComponentDesign/CptVarModal.jsx",
       "resources/js/Pages/Backend/ComponentDesign/Edit.jsx",
-      "_rodal.esm-d2914f86.js",
+      "_rodal.esm-e9de0cc2.js",
       "resources/js/Pages/Backend/ComponentDesign/CreateFieldModal.jsx",
       "resources/js/Pages/Backend/ComponentDesign/CreateCptVarModal.jsx",
-      "_MyCodeEditor-a08b0bc4.js",
-      "_index-f0c49e0f.js"
+      "_MyCodeEditor-2a05645c.js",
+      "_index-aed679ba.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Backend/ComponentDesign/Index.jsx"
   },
   "resources/js/Pages/Backend/ComponentDesign/Items.jsx": {
-    "file": "assets/Items-722d7da6.js",
+    "file": "assets/Items-79a7fc9d.js",
     "imports": [
       "resources/js/app.jsx",
-      "_ComponentContext-c3d16086.js"
+      "_ComponentContext-ffa80ff9.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Backend/ComponentDesign/Items.jsx"
   },
   "resources/js/Pages/Backend/Components/Create.jsx": {
-    "file": "assets/Create-f3879612.js",
+    "file": "assets/Create-fc822a29.js",
     "imports": [
       "resources/js/app.jsx",
-      "_FrontendLayout-00f3f7bc.js",
-      "_index-f0c49e0f.js"
+      "_FrontendLayout-365e4934.js",
+      "_index-aed679ba.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Backend/Components/Create.jsx"
   },
   "resources/js/Pages/Backend/Components/CreateModal.jsx": {
-    "file": "assets/CreateModal-fc307981.js",
+    "file": "assets/CreateModal-6d740a83.js",
     "imports": [
       "resources/js/app.jsx",
-      "_rodal.esm-d2914f86.js",
-      "_index-f7f45ee6.js"
+      "_rodal.esm-e9de0cc2.js",
+      "_index-f85fabbe.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Backend/Components/CreateModal.jsx"
   },
   "resources/js/Pages/Backend/Components/Index.jsx": {
-    "file": "assets/Index-36964951.js",
+    "file": "assets/Index-48b89362.js",
     "imports": [
       "resources/js/app.jsx",
-      "_FrontendLayout-00f3f7bc.js",
-      "_index-f7f45ee6.js",
-      "_rodal.esm-d2914f86.js",
+      "_FrontendLayout-365e4934.js",
+      "_index-f85fabbe.js",
+      "_rodal.esm-e9de0cc2.js",
       "resources/js/Pages/Backend/Components/CreateModal.jsx"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Backend/Components/Index.jsx"
   },
   "resources/js/Pages/Backend/Industry/Index.jsx": {
-    "file": "assets/Index-d400c935.js",
+    "file": "assets/Index-555c5336.js",
     "imports": [
       "resources/js/app.jsx",
-      "_FrontendLayout-00f3f7bc.js",
-      "_index-f7f45ee6.js",
+      "_FrontendLayout-365e4934.js",
+      "_index-f85fabbe.js",
       "resources/js/Pages/Backend/Industry/IndustryItems.jsx"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Backend/Industry/Index.jsx"
   },
   "resources/js/Pages/Backend/Industry/IndustryItems.jsx": {
-    "file": "assets/IndustryItems-4ee07ff6.js",
+    "file": "assets/IndustryItems-49d4ad0c.js",
     "imports": [
       "resources/js/app.jsx"
     ],
@@ -367,7 +368,7 @@
     "src": "resources/js/Pages/Backend/Industry/IndustryItems.jsx"
   },
   "resources/js/Pages/Backend/Section/Create.jsx": {
-    "file": "assets/Create-7c4975a4.js",
+    "file": "assets/Create-390e44b3.js",
     "imports": [
       "resources/js/app.jsx"
     ],
@@ -375,119 +376,144 @@
     "src": "resources/js/Pages/Backend/Section/Create.jsx"
   },
   "resources/js/Pages/Backend/Section/DuplicateSection.jsx": {
-    "file": "assets/DuplicateSection-26f36779.js",
+    "file": "assets/DuplicateSection-ff9aa34e.js",
     "imports": [
       "resources/js/app.jsx",
-      "_index-f7f45ee6.js",
-      "_rodal.esm-d2914f86.js"
+      "_index-f85fabbe.js",
+      "_rodal.esm-e9de0cc2.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Backend/Section/DuplicateSection.jsx"
   },
   "resources/js/Pages/Backend/Section/Edit.jsx": {
-    "file": "assets/Edit-1fb941a3.js",
+    "file": "assets/Edit-67b65935.js",
     "imports": [
       "resources/js/app.jsx",
-      "_SectionContext-5bc09601.js",
-      "_rodal.esm-d2914f86.js",
-      "_MyCodeEditor-a08b0bc4.js",
-      "_index-f7f45ee6.js",
-      "_index-f0c49e0f.js"
+      "_SectionContext-ab85eef9.js",
+      "_rodal.esm-e9de0cc2.js",
+      "_MyCodeEditor-2a05645c.js",
+      "_index-f85fabbe.js",
+      "_index-aed679ba.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Backend/Section/Edit.jsx"
   },
   "resources/js/Pages/Backend/Section/Index.jsx": {
-    "file": "assets/Index-ce9c4c7d.js",
+    "file": "assets/Index-2d5e61b3.js",
     "imports": [
       "resources/js/app.jsx",
-      "_FrontendLayout-00f3f7bc.js",
-      "_rodal.esm-d2914f86.js",
-      "_index-f7f45ee6.js",
+      "_FrontendLayout-365e4934.js",
+      "_rodal.esm-e9de0cc2.js",
+      "_index-f85fabbe.js",
       "resources/js/Pages/Backend/Section/DuplicateSection.jsx",
       "resources/js/Pages/Backend/Section/Edit.jsx",
-      "_SectionContext-5bc09601.js",
+      "_SectionContext-ab85eef9.js",
       "resources/js/Pages/Backend/Section/SectionItems.jsx",
-      "_MyCodeEditor-a08b0bc4.js",
-      "_index-f0c49e0f.js"
+      "_MyCodeEditor-2a05645c.js",
+      "_index-aed679ba.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Backend/Section/Index.jsx"
   },
   "resources/js/Pages/Backend/Section/SectionItems.jsx": {
-    "file": "assets/SectionItems-4be7fe96.js",
+    "file": "assets/SectionItems-40ac1046.js",
     "imports": [
       "resources/js/app.jsx",
-      "_SectionContext-5bc09601.js"
+      "_SectionContext-ab85eef9.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Backend/Section/SectionItems.jsx"
   },
   "resources/js/Pages/Backend/SectionData/Component.jsx": {
-    "file": "assets/Component-fd3442f4.js",
+    "file": "assets/Component-6f8432f6.js",
     "imports": [
       "resources/js/app.jsx",
-      "_SectionDataContext-162d67fc.js",
-      "_FrontendLayout-00f3f7bc.js",
-      "_SectionDataLayout-58666971.js",
-      "_index-f7f45ee6.js",
+      "_SectionDataContext-6a34eaf6.js",
+      "_FrontendLayout-365e4934.js",
+      "_SectionDataLayout-409662c4.js",
+      "_index-f85fabbe.js",
       "resources/js/Pages/Backend/SectionData/FieldModal.jsx",
-      "_rodal.esm-d2914f86.js",
+      "_rodal.esm-e9de0cc2.js",
       "resources/js/Pages/Backend/SectionData/CreateFieldModal.jsx",
-      "resources/js/Pages/Backend/SectionData/CreateCptModal.jsx"
+      "resources/js/Pages/Backend/SectionData/CreateCptModal.jsx",
+      "resources/js/Pages/Backend/SectionData/CreateDesignModal.jsx",
+      "resources/js/Pages/Backend/SectionData/DesignModal.jsx"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Backend/SectionData/Component.jsx"
   },
   "resources/js/Pages/Backend/SectionData/CreateCptModal.jsx": {
-    "file": "assets/CreateCptModal-58891775.js",
+    "file": "assets/CreateCptModal-eab735bd.js",
     "imports": [
       "resources/js/app.jsx",
-      "_rodal.esm-d2914f86.js",
-      "_SectionDataContext-162d67fc.js"
+      "_rodal.esm-e9de0cc2.js",
+      "_SectionDataContext-6a34eaf6.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Backend/SectionData/CreateCptModal.jsx"
   },
-  "resources/js/Pages/Backend/SectionData/CreateFieldModal.jsx": {
-    "file": "assets/CreateFieldModal-a95eeb8a.js",
+  "resources/js/Pages/Backend/SectionData/CreateDesignModal.jsx": {
+    "file": "assets/CreateDesignModal-1458fe34.js",
     "imports": [
       "resources/js/app.jsx",
-      "_rodal.esm-d2914f86.js",
-      "_SectionDataContext-162d67fc.js",
-      "_index-f7f45ee6.js"
+      "_rodal.esm-e9de0cc2.js",
+      "_SectionDataContext-6a34eaf6.js",
+      "_index-f85fabbe.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/Pages/Backend/SectionData/CreateDesignModal.jsx"
+  },
+  "resources/js/Pages/Backend/SectionData/CreateFieldModal.jsx": {
+    "file": "assets/CreateFieldModal-1e9287d4.js",
+    "imports": [
+      "resources/js/app.jsx",
+      "_rodal.esm-e9de0cc2.js",
+      "_SectionDataContext-6a34eaf6.js",
+      "_index-f85fabbe.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Backend/SectionData/CreateFieldModal.jsx"
   },
-  "resources/js/Pages/Backend/SectionData/FieldModal.jsx": {
-    "file": "assets/FieldModal-3ba05dda.js",
+  "resources/js/Pages/Backend/SectionData/DesignModal.jsx": {
+    "file": "assets/DesignModal-e0343b2b.js",
     "imports": [
       "resources/js/app.jsx",
-      "_rodal.esm-d2914f86.js",
-      "_SectionDataContext-162d67fc.js"
+      "_rodal.esm-e9de0cc2.js",
+      "_SectionDataContext-6a34eaf6.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/Pages/Backend/SectionData/DesignModal.jsx"
+  },
+  "resources/js/Pages/Backend/SectionData/FieldModal.jsx": {
+    "file": "assets/FieldModal-f1a40394.js",
+    "imports": [
+      "resources/js/app.jsx",
+      "_rodal.esm-e9de0cc2.js",
+      "_SectionDataContext-6a34eaf6.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Backend/SectionData/FieldModal.jsx"
   },
   "resources/js/Pages/Backend/SectionData/Index.jsx": {
-    "file": "assets/Index-0ba6e0c5.js",
+    "file": "assets/Index-e65fad3c.js",
     "imports": [
       "resources/js/app.jsx",
-      "_FrontendLayout-00f3f7bc.js",
-      "_index-f7f45ee6.js",
-      "_SectionDataContext-162d67fc.js",
-      "_SectionDataLayout-58666971.js",
+      "_FrontendLayout-365e4934.js",
+      "_index-f85fabbe.js",
+      "_SectionDataContext-6a34eaf6.js",
+      "_SectionDataLayout-409662c4.js",
       "resources/js/Pages/Backend/SectionData/FieldModal.jsx",
-      "_rodal.esm-d2914f86.js",
+      "_rodal.esm-e9de0cc2.js",
       "resources/js/Pages/Backend/SectionData/CreateFieldModal.jsx",
-      "resources/js/Pages/Backend/SectionData/CreateCptModal.jsx"
+      "resources/js/Pages/Backend/SectionData/CreateCptModal.jsx",
+      "resources/js/Pages/Backend/SectionData/CreateDesignModal.jsx",
+      "resources/js/Pages/Backend/SectionData/DesignModal.jsx"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Backend/SectionData/Index.jsx"
   },
   "resources/js/Pages/Backend/SubIndustry/FieldItems.jsx": {
-    "file": "assets/FieldItems-9aada2ac.js",
+    "file": "assets/FieldItems-374b2422.js",
     "imports": [
       "resources/js/app.jsx"
     ],
@@ -495,33 +521,33 @@
     "src": "resources/js/Pages/Backend/SubIndustry/FieldItems.jsx"
   },
   "resources/js/Pages/Backend/SubIndustry/FieldModal.jsx": {
-    "file": "assets/FieldModal-55b6de54.js",
+    "file": "assets/FieldModal-d1fd7a34.js",
     "imports": [
       "resources/js/app.jsx",
-      "_CreateField-0a9cbafd.js",
-      "_rodal.esm-d2914f86.js",
-      "_index-f7f45ee6.js"
+      "_CreateField-a32ad181.js",
+      "_rodal.esm-e9de0cc2.js",
+      "_index-f85fabbe.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Backend/SubIndustry/FieldModal.jsx"
   },
   "resources/js/Pages/Backend/SubIndustry/Index.jsx": {
-    "file": "assets/Index-3052a2eb.js",
+    "file": "assets/Index-2a5849ca.js",
     "imports": [
       "resources/js/app.jsx",
-      "_FrontendLayout-00f3f7bc.js",
-      "_index-f7f45ee6.js",
+      "_FrontendLayout-365e4934.js",
+      "_index-f85fabbe.js",
       "resources/js/Pages/Backend/SubIndustry/SubIndustryItems.jsx",
       "resources/js/Pages/Backend/SubIndustry/FieldModal.jsx",
-      "_CreateField-0a9cbafd.js",
+      "_CreateField-a32ad181.js",
       "resources/js/Pages/Backend/SubIndustry/FieldItems.jsx",
-      "_rodal.esm-d2914f86.js"
+      "_rodal.esm-e9de0cc2.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Backend/SubIndustry/Index.jsx"
   },
   "resources/js/Pages/Backend/SubIndustry/SubIndustryItems.jsx": {
-    "file": "assets/SubIndustryItems-79d9e99e.js",
+    "file": "assets/SubIndustryItems-13d5b22d.js",
     "imports": [
       "resources/js/app.jsx"
     ],
@@ -529,23 +555,23 @@
     "src": "resources/js/Pages/Backend/SubIndustry/SubIndustryItems.jsx"
   },
   "resources/js/Pages/Backend/Template/Create.jsx": {
-    "file": "assets/Create-3a64ed16.js",
+    "file": "assets/Create-69b5a947.js",
     "imports": [
       "resources/js/app.jsx",
-      "_FrontendLayout-00f3f7bc.js",
-      "_rodal.esm-d2914f86.js",
-      "_index-f7f45ee6.js"
+      "_FrontendLayout-365e4934.js",
+      "_rodal.esm-e9de0cc2.js",
+      "_index-f85fabbe.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Backend/Template/Create.jsx"
   },
   "resources/js/Pages/Backend/Template/CreateTemplate.jsx": {
-    "file": "assets/CreateTemplate-2dd0e473.js",
+    "file": "assets/CreateTemplate-a577e53f.js",
     "imports": [
       "resources/js/app.jsx",
-      "_FrontendLayout-00f3f7bc.js",
-      "_index-f0c49e0f.js",
-      "_rodal.esm-d2914f86.js"
+      "_FrontendLayout-365e4934.js",
+      "_index-aed679ba.js",
+      "_rodal.esm-e9de0cc2.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Backend/Template/CreateTemplate.jsx"
@@ -558,75 +584,75 @@
     "css": [
       "assets/Edit-f246b036.css"
     ],
-    "file": "assets/Edit-a865e519.js",
+    "file": "assets/Edit-e812a203.js",
     "imports": [
       "resources/js/app.jsx",
-      "_TemplateContext-0c34052b.js",
-      "_rodal.esm-d2914f86.js",
-      "_index-f0c49e0f.js",
-      "_index-f7f45ee6.js",
-      "_MyCodeEditor-a08b0bc4.js"
+      "_TemplateContext-5ed84d33.js",
+      "_rodal.esm-e9de0cc2.js",
+      "_index-aed679ba.js",
+      "_index-f85fabbe.js",
+      "_MyCodeEditor-2a05645c.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Backend/Template/Edit.jsx"
   },
   "resources/js/Pages/Backend/Template/Index.jsx": {
-    "file": "assets/Index-b1dbbd2b.js",
+    "file": "assets/Index-ac33851b.js",
     "imports": [
       "resources/js/app.jsx",
-      "_FrontendLayout-00f3f7bc.js",
-      "_index-f7f45ee6.js",
+      "_FrontendLayout-365e4934.js",
+      "_index-f85fabbe.js",
       "resources/js/Pages/Backend/Template/TemplateItems.jsx",
       "resources/js/Pages/Backend/Template/Edit.jsx",
-      "_TemplateContext-0c34052b.js",
-      "_rodal.esm-d2914f86.js",
-      "_index-f0c49e0f.js",
-      "_MyCodeEditor-a08b0bc4.js"
+      "_TemplateContext-5ed84d33.js",
+      "_rodal.esm-e9de0cc2.js",
+      "_index-aed679ba.js",
+      "_MyCodeEditor-2a05645c.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Backend/Template/Index.jsx"
   },
   "resources/js/Pages/Backend/Template/TemplateItems.jsx": {
-    "file": "assets/TemplateItems-62919fe4.js",
+    "file": "assets/TemplateItems-a661cb74.js",
     "imports": [
       "resources/js/app.jsx",
-      "_TemplateContext-0c34052b.js"
+      "_TemplateContext-5ed84d33.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Backend/Template/TemplateItems.jsx"
   },
   "resources/js/Pages/Category/Create.jsx": {
-    "file": "assets/Create-2ad5e873.js",
+    "file": "assets/Create-d0ca996c.js",
     "imports": [
       "resources/js/app.jsx",
-      "_FrontendLayout-00f3f7bc.js"
+      "_FrontendLayout-365e4934.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Category/Create.jsx"
   },
   "resources/js/Pages/Dashboard.jsx": {
-    "file": "assets/Dashboard-2fbb60e2.js",
+    "file": "assets/Dashboard-344671cb.js",
     "imports": [
       "resources/js/app.jsx",
-      "_AuthenticatedLayout-bf030496.js",
-      "_ApplicationLogo-4afcf673.js",
-      "_transition-9ee16c42.js"
+      "_AuthenticatedLayout-72440d9e.js",
+      "_ApplicationLogo-24eb4423.js",
+      "_transition-0aec619a.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Dashboard.jsx"
   },
   "resources/js/Pages/Frontend/Home/Index.jsx": {
-    "file": "assets/Index-4f6a608c.js",
+    "file": "assets/Index-2fab11fc.js",
     "imports": [
       "resources/js/app.jsx",
-      "_FrontendLayout-00f3f7bc.js",
+      "_FrontendLayout-365e4934.js",
       "resources/js/Pages/Frontend/Home/Websites.jsx"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Frontend/Home/Index.jsx"
   },
   "resources/js/Pages/Frontend/Home/Websites.jsx": {
-    "file": "assets/Websites-5acd8fa0.js",
+    "file": "assets/Websites-11b7cdb7.js",
     "imports": [
       "resources/js/app.jsx"
     ],
@@ -634,17 +660,17 @@
     "src": "resources/js/Pages/Frontend/Home/Websites.jsx"
   },
   "resources/js/Pages/Frontend/Website/Create.jsx": {
-    "file": "assets/Create-7cdf3ef5.js",
+    "file": "assets/Create-9487f136.js",
     "imports": [
       "resources/js/app.jsx",
-      "_FrontendLayout-00f3f7bc.js",
+      "_FrontendLayout-365e4934.js",
       "resources/js/Pages/Frontend/Website/GeneralData.jsx"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Frontend/Website/Create.jsx"
   },
   "resources/js/Pages/Frontend/Website/GeneralData.jsx": {
-    "file": "assets/GeneralData-4c54c72e.js",
+    "file": "assets/GeneralData-812616ad.js",
     "imports": [
       "resources/js/app.jsx"
     ],
@@ -652,77 +678,77 @@
     "src": "resources/js/Pages/Frontend/Website/GeneralData.jsx"
   },
   "resources/js/Pages/Product/Create.jsx": {
-    "file": "assets/Create-e8b1021d.js",
+    "file": "assets/Create-120a805b.js",
     "imports": [
       "resources/js/app.jsx",
-      "_FrontendLayout-00f3f7bc.js"
+      "_FrontendLayout-365e4934.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Product/Create.jsx"
   },
   "resources/js/Pages/Product/Index.jsx": {
-    "file": "assets/Index-b713b96e.js",
+    "file": "assets/Index-10f185cb.js",
     "imports": [
       "resources/js/app.jsx",
-      "_FrontendLayout-00f3f7bc.js"
+      "_FrontendLayout-365e4934.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Product/Index.jsx"
   },
   "resources/js/Pages/Profile/Edit.jsx": {
-    "file": "assets/Edit-b006ae65.js",
+    "file": "assets/Edit-9aa91a62.js",
     "imports": [
       "resources/js/app.jsx",
-      "_AuthenticatedLayout-bf030496.js",
+      "_AuthenticatedLayout-72440d9e.js",
       "resources/js/Pages/Profile/Partials/DeleteUserForm.jsx",
       "resources/js/Pages/Profile/Partials/UpdatePasswordForm.jsx",
       "resources/js/Pages/Profile/Partials/UpdateProfileInformationForm.jsx",
-      "_ApplicationLogo-4afcf673.js",
-      "_transition-9ee16c42.js",
-      "_TextInput-6ab4e0a2.js",
-      "_InputLabel-bf706e2a.js",
-      "_PrimaryButton-1cd50334.js"
+      "_ApplicationLogo-24eb4423.js",
+      "_transition-0aec619a.js",
+      "_TextInput-fc2d0338.js",
+      "_InputLabel-f3af3165.js",
+      "_PrimaryButton-a29a2942.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Profile/Edit.jsx"
   },
   "resources/js/Pages/Profile/Partials/DeleteUserForm.jsx": {
-    "file": "assets/DeleteUserForm-0279cbcb.js",
+    "file": "assets/DeleteUserForm-09f25d4b.js",
     "imports": [
       "resources/js/app.jsx",
-      "_TextInput-6ab4e0a2.js",
-      "_InputLabel-bf706e2a.js",
-      "_transition-9ee16c42.js"
+      "_TextInput-fc2d0338.js",
+      "_InputLabel-f3af3165.js",
+      "_transition-0aec619a.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Profile/Partials/DeleteUserForm.jsx"
   },
   "resources/js/Pages/Profile/Partials/UpdatePasswordForm.jsx": {
-    "file": "assets/UpdatePasswordForm-e0e4bf0d.js",
+    "file": "assets/UpdatePasswordForm-1fc352fb.js",
     "imports": [
       "resources/js/app.jsx",
-      "_TextInput-6ab4e0a2.js",
-      "_InputLabel-bf706e2a.js",
-      "_PrimaryButton-1cd50334.js",
-      "_transition-9ee16c42.js"
+      "_TextInput-fc2d0338.js",
+      "_InputLabel-f3af3165.js",
+      "_PrimaryButton-a29a2942.js",
+      "_transition-0aec619a.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Profile/Partials/UpdatePasswordForm.jsx"
   },
   "resources/js/Pages/Profile/Partials/UpdateProfileInformationForm.jsx": {
-    "file": "assets/UpdateProfileInformationForm-d3b67d19.js",
+    "file": "assets/UpdateProfileInformationForm-403e8c27.js",
     "imports": [
       "resources/js/app.jsx",
-      "_TextInput-6ab4e0a2.js",
-      "_InputLabel-bf706e2a.js",
-      "_PrimaryButton-1cd50334.js",
-      "_transition-9ee16c42.js"
+      "_TextInput-fc2d0338.js",
+      "_InputLabel-f3af3165.js",
+      "_PrimaryButton-a29a2942.js",
+      "_transition-0aec619a.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Profile/Partials/UpdateProfileInformationForm.jsx"
   },
   "resources/js/Pages/SubCategory/Create.jsx": {
-    "file": "assets/Create-7e108138.js",
+    "file": "assets/Create-e009478d.js",
     "imports": [
       "resources/js/app.jsx"
     ],
@@ -730,7 +756,7 @@
     "src": "resources/js/Pages/SubCategory/Create.jsx"
   },
   "resources/js/Pages/Temp/View.jsx": {
-    "file": "assets/View-0d9c3a66.js",
+    "file": "assets/View-75836baa.js",
     "imports": [
       "resources/js/app.jsx"
     ],
@@ -738,7 +764,7 @@
     "src": "resources/js/Pages/Temp/View.jsx"
   },
   "resources/js/Pages/Welcome.jsx": {
-    "file": "assets/Welcome-88520615.js",
+    "file": "assets/Welcome-9bb6ea76.js",
     "imports": [
       "resources/js/app.jsx"
     ],
@@ -782,10 +808,12 @@
       "resources/js/Pages/Backend/Section/SectionItems.jsx",
       "resources/js/Pages/Backend/SectionData/Component.jsx",
       "resources/js/Pages/Backend/SectionData/CreateCptModal.jsx",
+      "resources/js/Pages/Backend/SectionData/CreateDesignModal.jsx",
       "resources/js/Pages/Backend/SectionData/CreateFieldModal.jsx",
+      "resources/js/Pages/Backend/SectionData/DesignModal.jsx",
       "resources/js/Pages/Backend/SectionData/FieldModal.jsx",
       "resources/js/Pages/Backend/SectionData/Index.jsx",
-      "_CreateField-0a9cbafd.js",
+      "_CreateField-a32ad181.js",
       "resources/js/Pages/Backend/SubIndustry/FieldItems.jsx",
       "resources/js/Pages/Backend/SubIndustry/FieldModal.jsx",
       "resources/js/Pages/Backend/SubIndustry/Index.jsx",
@@ -811,7 +839,7 @@
       "resources/js/Pages/Temp/View.jsx",
       "resources/js/Pages/Welcome.jsx"
     ],
-    "file": "assets/app-6e357656.js",
+    "file": "assets/app-8945b544.js",
     "isEntry": true,
     "src": "resources/js/app.jsx"
   }

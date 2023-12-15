@@ -8,6 +8,8 @@ import CreateFieldModal from "@/Pages/Backend/SectionData/CreateFieldModal";
 import CreateCptModal from "@/Pages/Backend/SectionData/CreateCptModal";
 import CreateDesignModal from "@/Pages/Backend/SectionData/CreateDesignModal";
 import DesignModal from "@/Pages/Backend/SectionData/DesignModal";
+import EditField from "@/Pages/Backend/SectionData/EditField";
+import '../Pages/Backend/Template/app.css'
 
 const SectionDataLayout = ({ children}) => {
     const {setVisibleField, setVisibleComponent,setVisibleCreateDesignModal, setVisibleDesign, section_id} = useContext(SectionDataContext)
@@ -65,6 +67,8 @@ const SectionDataLayout = ({ children}) => {
 
                 {/* Create Design Modal  */}
                 <CreateDesignModal />
+
+                <EditField />
                 {children}
         </div>
     );

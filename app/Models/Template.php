@@ -14,16 +14,16 @@ class Template extends Model
         'content' => 'json',
     ];
 
-    public function sections() {
-        return $this->hasMany(Section::class);
-    }
-
     public function category() {
         return $this->belongsTo(Category::class);
     }
 
     public function industry() {
         return $this->category->industry();
+    }
+
+    public function pages() {
+        return $this->hasMany(Page::class);
     }
 
 }

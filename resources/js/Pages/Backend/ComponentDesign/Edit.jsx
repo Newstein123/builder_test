@@ -5,6 +5,7 @@ import Rodal from "rodal";
 import MyCodeEditor from "@/Components/Template/MyCodeEditor";
 import toast from "react-hot-toast";
 import { ComponentContext } from '@/Context/ComponentContext';
+import '../Template/app.css'
 
 const Edit = () => {
     const { editVisible, setEditVisible } = useContext(ComponentContext);
@@ -13,6 +14,7 @@ const Edit = () => {
 
     const { data, setData, reset } = useForm({
         content: cpt_design?.content,
+        skeleton: cpt_design?.skeleton,
     });
 
     function submit(e) {
@@ -40,7 +42,7 @@ const Edit = () => {
                 {cpt_design && (
                     <div>
                         <form onSubmit={submit}>
-                            {/* layout  */}
+                            {/* content  */}
                             <div className="my-3">
                                 <MyCodeEditor
                                     value={data.content}
@@ -48,6 +50,16 @@ const Edit = () => {
                                     data="content"
                                     lang="html"
                                     name="Add Content"
+                                />
+                            </div>
+                            {/* skeleton  */}
+                            <div className="my-3">
+                                <MyCodeEditor
+                                    value={data.skeleton}
+                                    setData={setData}
+                                    data="skeleton"
+                                    lang="html"
+                                    name="Add Skeleton Structure"
                                 />
                             </div>
                             <div className="text-end">

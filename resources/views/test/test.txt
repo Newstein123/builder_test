@@ -71,8 +71,8 @@
         </div>
       </nav>
       <!-- hero section  -->
-      <div>{{hero_section}}</div>
-      <div  style="background-color : {{secondary_color}}">{{about_section}}</div>
+      <div>{{hero_sec}}</div>
+      <div  style="background-color : {{gen.cp.two}}">{{about_section}}</div>
       <div> {{product_section}} </div>
       <!-- footer  -->
       <div class="p-3"> အခြေခံအကြောင်းတရားကား မြန်မာစာသာ ဖြစ်သည်</div>
@@ -168,12 +168,12 @@
 <h2 class="text-center"> About Me</h2>
 <div class="row mx-5 mt-4">
     <div class="col-md-6">
-    <p>Name : {{name}}</p>
-    <p>Email : {{email}}</p>
+    <p>Name : {{about_sec.name}}</p>
+    <p>Email : {{about_sec.email}}</p>
     </div>
     <div class="col-md-6">
     <img
-        src="{{about_image}}"
+        src="{{about_sec.image}}"
         alt=""
         class="img-fluid"
         alt="About Us Image"
@@ -186,7 +186,6 @@
 # product card component 
 
 <div class="col-md-4 my-2">
-
 <div class="card">
     <img src="{{product.product_image}}" class="card-img-top" alt="..." />
     <div class="card-body">
