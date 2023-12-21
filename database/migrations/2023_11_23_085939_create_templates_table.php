@@ -16,7 +16,6 @@ return new class extends Migration
             $table->string('name');
             $table->foreignId('category_id')->constrained('categories')->onDelete('cascade');
             $table->longText('layout')->nullable();
-            $table->json('content')->nullable();
             $table->longText('css')->nullable();
             $table->longText('js')->nullable();
             $table->text('links')->nullable();

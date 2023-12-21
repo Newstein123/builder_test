@@ -11,13 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('component_variables', function (Blueprint $table) {
+        Schema::create('media_files', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('component_id')->constrained('components')->onDelete('cascade');
-            $table->string('name');
-            $table->string('value');
-            $table->string('type');
-            $table->string('option');
+            $table->foreignId('media_folder_id')->constrained('media_folders')->onDelete('cascade');
+            $table->string('filename');
+            $table->string('path');
+            $table->string('mime_type');
             $table->timestamps();
         });
     }
@@ -27,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('component_variables');
+        Schema::dropIfExists('media_files');
     }
 };

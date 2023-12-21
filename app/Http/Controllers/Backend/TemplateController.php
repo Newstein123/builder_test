@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\SubIndustry;
+use App\Models\TemplateAsset;
+use Illuminate\Support\Facades\Storage;
 
 class TemplateController extends Controller
 {   
@@ -78,18 +80,47 @@ class TemplateController extends Controller
 
     public function update(Request $request, $id) {
         $template = Template::find($id);
-
+        $data = $request->data;
         if($template) {
-            $template->update([
-                'content' => $request->content,
-                'layout' => $request->layout,
-                'scripts' => $request->scripts,
-                'links' => $request->links,
-                'css' => $request->css,
-                'js' => $request->js,
-            ]);
-        }
+            try {
+                DB::transaction(function() use($data, $template) {
+                    $template->update([
+                        'content' => $data['content'],
+                        'layout' => $data['layout'],
+                        'scripts' => $data['scripts'],
+                        'links' => $data['links'],
+                        'css' => $data['css'],
+                        'js' => $data['js'],
+                    ]);
 
-        return redirect()->back();
+                    if($data['css_assets']) {
+                        foreach ($data['css_assets'] as $file) {
+                            $filename = time() . '_' . $file->getClientOriginalName();
+                            $path = Storage::putFileAs('template/css', $file,  $filename,);
+                            TemplateAsset::create([
+                                'template_id' => $template->id,
+                                'file_type' => 'css',
+                                'path' => $path,
+                            ]);
+                        }
+                    }
+                    
+                    if($data['js_assets']) {
+                        foreach ($data['js_assets'] as $file) {
+                            $filename = time() . '_' . $file->getClientOriginalName();
+                            $path = Storage::putFileAs('template/js', $file,  $filename,);
+                            TemplateAsset::create([
+                                'template_id' => $template->id,
+                                'file_type' => 'js',
+                                'path' => $path,
+                            ]);
+                        }
+                    }
+                });
+                return redirect()->back();
+            } catch (\Exception $e) {
+                dd($e->getMessage());
+            }
+        }
     }
 }

@@ -3,7 +3,7 @@ import React from "react";
 import { useContext } from "react";
 import Rodal from "rodal";
 import { router, useForm, usePage } from "@inertiajs/react";
-import './app.css'
+import "./app.css";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import MyCodeEditor from "@/Components/Template/MyCodeEditor";
@@ -13,7 +13,6 @@ const Edit = ({}) => {
     const { template } = usePage().props;
     const [errors, setErrors] = useState([]);
 
-
     const { data, setData, reset } = useForm({
         layout: template?.layout,
         content: template?.content,
@@ -21,20 +20,26 @@ const Edit = ({}) => {
         js: template?.js,
         scripts: template?.scripts,
         links: template?.links,
+        css_assets: null,
+        js_assets: null,
     });
 
     function submit(e) {
         e.preventDefault();
-        router.put(route('template.update', template.id), data, {
-            onSuccess : () => {
-                toast.success('Template Updated Successfully');
-                setEditVisible(false)
+        router.post(route("template.update", template.id), {
+            _method : 'put',
+            data : data,
+        } , {
+            forceFormData : true,
+            onSuccess: () => {
+                toast.success("Template Updated Successfully");
+                setEditVisible(false);
                 reset();
             },
-            onError : (err) => {
-                setErrors(err)
-            }
-        })
+            onError: (err) => {
+                setErrors(err);
+            },
+        });
     }
 
     return (
@@ -55,51 +60,82 @@ const Edit = ({}) => {
                                     setData={setData}
                                     data="layout"
                                     lang="html"
-                                    name = "Add Layout"
+                                    name="Add Layout"
                                 />
                             </div>
                             {/* Js  */}
                             <div className="my-3">
-                                <MyCodeEditor 
-                                        value={data.js}
-                                        setData={setData}
-                                        data="js"
-                                        lang="js"
-                                        name = "Add Javascript Code"
-                                    />
+                                <MyCodeEditor
+                                    value={data.js}
+                                    setData={setData}
+                                    data="js"
+                                    lang="js"
+                                    name="Add Javascript Code"
+                                />
                             </div>
                             {/* css */}
                             <div className="my-3">
-                                <MyCodeEditor 
+                                <MyCodeEditor
                                     value={data.css}
                                     setData={setData}
                                     data="css"
                                     lang="css"
-                                    name = "Add Css Code"
+                                    name="Add Css Code"
                                 />
                             </div>
                             {/* css links  */}
                             <div className="my-3">
-                                <MyCodeEditor 
+                                <MyCodeEditor
                                     value={data.links}
                                     setData={setData}
                                     data="links"
                                     lang="css"
-                                    name = "Add Css Links"
+                                    name="Add Css Links"
                                 />
                             </div>
                             {/* js scripts  */}
                             <div className="my-3">
-                                <MyCodeEditor 
+                                <MyCodeEditor
                                     value={data.scripts}
                                     setData={setData}
                                     data="scripts"
                                     lang="js"
-                                    name = "Add Scripts Links"
+                                    name="Add Scripts Links"
+                                />
+                            </div>
+                            {/* css assets files  */}
+                            <div className="my-3">
+                                <label htmlFor="css_assets" className="text-xl font-bold">
+                                     Add Css Asset Files 
+                                </label>
+                                <input
+                                    type="file"
+                                    className="p-2 my-3 w-full rounded-md border-2 border-slate-500"
+                                    name="css_assets"
+                                    onChange={(e) => setData('css_assets', e.target.files)}
+                                    multiple
+                                />
+                            </div>
+                            {/* js assets files  */}
+                            <div className="my-3">
+                                <label htmlFor="js_assets" className="text-xl font-bold"> 
+                                    Add Js Asset Files 
+                                </label>
+                                <input
+                                    type="file"
+                                    className="p-2 my-3 w-full rounded-md border-2"
+                                    name="js_assets"
+                                    onChange={(e) => setData('js_assets', e.target.files)}
+                                    multiple
                                 />
                             </div>
                             <div className="text-end">
-                                <button type="submit" className="p-2 bg-black text-white rounded-md"> Update </button>
+                                <button
+                                    type="submit"
+                                    className="p-2 bg-black text-white rounded-md"
+                                >
+                                    Update
+                                </button>
                             </div>
                         </form>
                     </div>

@@ -20,6 +20,6 @@ class Section extends Model
     }
 
     public function pages() {
-        return $this->belongsToMany(Page::class);
+        return $this->belongsToMany(Page::class)->withPivot('position');
     }
 }

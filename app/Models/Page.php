@@ -12,6 +12,6 @@ class Page extends Model
     protected $guarded = [];
 
     public function sections() {
-        return $this->belongsToMany(Section::class);
+        return $this->belongsToMany(Section::class)->withPivot('position');
     }
 }

@@ -3,9 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\Website;
 use App\Models\Template;
 use Illuminate\Http\Request;
+use App\Models\TemplateAsset;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Blade;
+use Illuminate\Support\Facades\Storage;
 
 class TestController extends Controller
 {   private $defaultlData;
@@ -93,7 +97,29 @@ class TestController extends Controller
         dd($product->variants);
     }
 
-
+    function asset_file() {
+        $website = Website::find(9);
+        $template = Template::where('id', $website->template_id)->first();
+        return view('test.asset_file', compact('template'));
+    }
     
+    function asset_file_update(Request $request) {
+        $asset = TemplateAsset::find($request->asset_id);
+        Storage::put($asset->path, $request->csscode);
+        return redirect()->back();
+    }
+
+    function aws_file_upload() {
+        return view('test.aws_file');
+    }
+
+    function aws_file_store(Request $request) {
+        $file = $request->file('file');
+        $filename = time() . '_'. $file->getClientOriginalName();
+        $path = 'public/images';
+        $path = Storage::putFileAs($path, $file, $filename);
+        dd(Storage::url($path));
+        dd($path);
+    }
 }
 

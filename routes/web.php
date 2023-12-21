@@ -1,19 +1,14 @@
 <?php
 
-use App\Helper\MyHelper;
 use Inertia\Inertia;
 use Twig\Environment;
 use App\Models\Product;
+use App\Http\Controllers\AiWritingController;
 use App\Models\Template;
-use App\Models\SubIndustry;
 use Illuminate\Http\Request;
-use App\Models\ProductOption;
-use App\Models\ProductVariations;
 use Twig\Loader\FilesystemLoader;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Foundation\Application;
+use App\Http\Controllers\PageController;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\FieldController;
 use App\Http\Controllers\ProductController;
@@ -29,11 +24,9 @@ use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\ComponentDesignController;
 use App\Http\Controllers\Backend\TemplateController;
 use App\Http\Controllers\Backend\ComponentController;
-use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProductVariationsController;
-use App\Models\OptionVariant;
-use App\Models\ProductVariatant;
-use App\Models\VariatantAttribute;
+use App\Http\Controllers\File\TemplateController as FileTemplateController;
+use App\Http\Controllers\MediaLibraryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -54,6 +47,9 @@ use App\Models\VariatantAttribute;
 //         'phpVersion' => PHP_VERSION,
 //     ]);
 // });
+
+Route::prefix('file')->group(base_path('routes/file.php'));
+Route::prefix('git')->group(base_path('routes/git.php'));
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
@@ -85,6 +81,11 @@ Route::get('/test/template', function () {
 Route::prefix('admin')->group(function () {
     // Pages 
         Route::resource('page', PageController::class);
+    // media library 
+        Route::prefix('media')->group(function() {
+            Route::get('/', [MediaLibraryController::class, 'get_media'])->name('media.index');
+            Route::post('/store', [MediaLibraryController::class, 'store_media'])->name('media.store');
+        });
 
     // Section Data 
     Route::prefix('section-data')->group(function () {
@@ -127,7 +128,7 @@ Route::prefix('my-website')->group(function() {
     Route::post('component-design/update', [WebsiteController::class, 'cpt_dsg_update'])->name('website.component-dsg.update');
     Route::get('{id}', [WebsiteController::class, 'my_website'])->name('website.template');
     Route::get('{id}/{page_name}', [WebsiteController::class, 'my_website'])->name('website.template');
-
+    Route::get('{id}/{parent_page}/detail/{item_id}', [WebsiteController::class, 'my_website_detail'])->name('website.template.detail');
 });
 
 // industry  
@@ -148,28 +149,44 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 require __DIR__ . '/auth.php';
 
 Route::get('/test/twig', function () {
+
     $loader = new FilesystemLoader();
     $twig = new Environment($loader);
 
     // Fetch template content from the database
-    $templateContent = Template::where('id', 1)->value('layout');
-
+    $templateContent = "
+            {% for section in sections %}
+                {{ section | raw }}
+            {% endfor %}
+    ";
+    $renderData = [
+        'sections' => [
+            '<div class="my-5">
+            <h2 class="text-center fw-bold"> Our Team</h2>
+            <div class="row mx-5">
+                {% for team in team_sec.team_card_cpt %}
+                    <div class="col-md-4 my-2">
+        <div class="card">
+            <img src="{{team.image}}" class="card-img-top" alt="..." />
+            <div class="card-body">
+            <h5 class="card-title">{{team.name}}</h5>
+            <p class="card-text">{{team.position}}</p>
+            <a href="#" class="btn btn-primary"> Go Somewhere </a>
+            </div>
+        </div>
+        </div>
+                {% endfor %}
+            </div>
+        </div>',
+            'this is js data',
+            'this is css data',
+        ]
+    ]; 
     // Assuming 'layout' is the column name where your Twig template content is stored
     $twigTemplate = $twig->createTemplate($templateContent);
-
-    $userData = [
-        'products' => [
-            ['name' => 'Product 1', 'price' => 19.99],
-            ['name' => 'Product 2', 'price' => 29.99],
-        ],
-    ];
-
-    $combinedData = [
-        'user' => $userData,
-    ];
-
     // Use the $twigTemplate->render() method to render the Twig template
-    $finalOutput = $twigTemplate->render($combinedData);
+    $finalOutput = $twigTemplate->render($renderData);
+    dd($finalOutput);
 
     // Assuming 'twig.template' is the path to your view file
     return view('twig.template', compact('finalOutput'));
@@ -444,5 +461,18 @@ Route::get('/test/component/update', function() {
 // });
 
 Route::get('/test/products', [TestController::class, 'product_var']);
+Route::get('/test/asset_file', [TestController::class, 'asset_file']);
+Route::put('/test/asset_file', [TestController::class, 'asset_file_update'])->name('asset_update');
+Route::get('/test/awsfileupload', [TestController::class, 'aws_file_upload']);
+Route::post('/test/awsfileupload', [TestController::class, 'aws_file_store']);
+
+Route::prefix('filesystem')->group(function() {
+    Route::resource('template-file', FileTemplateController::class);
+});
+
+// Ai writing assistant 
+
+Route::get('/test/ai-writing/get_message', [AiWritingController::class, 'get_message']);
+Route::get('/test/ai-writing', [AiWritingController::class, 'index']);
 
 

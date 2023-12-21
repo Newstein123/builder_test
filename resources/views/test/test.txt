@@ -196,3 +196,15 @@
     </div>
 </div>
 </div>
+
+# editable button in the section  
+
+<div 
+  class="editable-cpt btn btn-primary" 
+  data-t3-cpt="team_card_cpt" 
+  data-t3-sec="team_sec"
+> Edit </div>
+
+# to define as editable component 
+
+<div class="" data-t3-cptdsg="team_card_cptdsg1" > [component_design] </div>

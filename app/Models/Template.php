@@ -26,4 +26,8 @@ class Template extends Model
         return $this->hasMany(Page::class);
     }
 
+    public function assets() {
+        return $this->hasMany(TemplateAsset::class);
+    }
+
 }

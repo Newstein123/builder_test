@@ -94,16 +94,42 @@ class WebsiteController extends Controller
     }
 
     public function my_website($id, $page_name = "default")
-    {   
+    {      
+        
         if($page_name == "default") {
             $page_name = "home_pg";
         }
 
         $loader = new FilesystemLoader();
         $twig = new Environment($loader);
-        $website = Website::with(["sections_data", 'components_data'])->find($id);
+        $twig = new \Twig\Environment($loader, ['debug' => true]);
 
-        $template = Template::where('id', $website->template_id)->first();
+        $website = Website::with(["sections_data", 'components_data'])->find($id);
+        $template = Template::with('assets')
+                            ->where('id', $website->template_id)
+                            ->first();
+        
+        $rednerData = [];
+                    
+        $assets = $template->assets;
+        // css asset files 
+        $css_assets = $assets->filter(function($item) {
+            return $item->file_type == 'css';
+        })->transform(function($item) {
+            return [
+                'path' => Storage::url($item->path),
+            ];
+        })->toArray();
+
+        // js assets files 
+        $js_assets = $assets->filter(function($item) {
+            return $item->file_type == 'js';
+        })->transform(function($item) {
+            return [
+                'path' => Storage::url($item->path),
+            ];
+        })->toArray();;
+
         $pages = Page::where('template_id', $template->id)->get();
         $pages_array = $pages->transform(function($item) {
             return [
@@ -122,17 +148,19 @@ class WebsiteController extends Controller
         $general_content_data = json_decode($website->general_data, true);
         $general_design_data = json_decode($website->design_data, true);
         $general_data = array_merge($general_content_data, $general_design_data);
-
         $rednerData = [
             'gen' => $general_data,
             'pages' => $pages_array,
+            'css_assets' => $css_assets,
+            'js_assets' => $js_assets,
         ];
-
         $combine_cpt_sec_data = [];
 
         $sections_data = $website->sections_data->filter(function($item) use($page_name) {
             return $item->page_name == $page_name;
         });
+
+        $sections_data = $website->sections_data;
         // Sections Data
         foreach ($sections_data as $value) {
             // first combine design and content data 
@@ -146,6 +174,7 @@ class WebsiteController extends Controller
         $components_data = $website->components_data->filter(function($item) use($page_name) {
             return $item->page_name == $page_name;
         });
+        $components_data = $website->components_data;
 
         // Component Data in the section
         if(count($components_data) > 0) {
@@ -168,39 +197,46 @@ class WebsiteController extends Controller
         $rednerData = array_merge($rednerData, $combine_cpt_sec_data);
         if ($website) {
             $sections = [];
-            foreach ($page->sections as $key => $section) {
-                $cpt_dsgs = $section->component_designs;
-                $newSectionContent = $section->content;
+            $templateSections = $page->sections->transform(function($item) {
+                return [
+                    'name' => $item->name,
+                    'value' => $item->value,
+                    'content' => $item->content,
+                    'position' => $item->pivot->position,
+                    'component_designs' => $item->component_designs,
+                ];
+            })->sortBy('position');
+            foreach ($templateSections as $key => $section) {
+                $cpt_dsgs = $section["component_designs"];
+                $newSectionContent = $section["content"];
 
                 foreach ($cpt_dsgs as $key => $cpt_dsg) {
                     $cpt_name = $cpt_dsg->component->value;
                     $newSectionContent = str_replace("[$cpt_name]", $cpt_dsg->content, $newSectionContent);
                 }
 
-                // $sectionContent = $twig->createTemplate($newSectionContent);
-                $sectionName = $section->value;
+                $sectionName = $section["value"];
                 // Check if data exists for the current section
                 if (isset($combine_cpt_sec_data[$sectionName])) {
-                    // $sections_array = $combine_cpt_sec_data[$sectionName];
-                    // $sectionOutput = $sectionContent->render($sections_array);
                     // Save the rendered output along with other section information
-                    $sections[$sectionName] = [
-                        'output' => $newSectionContent,
-                    ];
+                    $sections['sections'][$sectionName] = $newSectionContent;
                 }
             }
 
-            $templateContent = $template->layout;
-            // dd( $combine_cpt_sec_data);
-            // dd($sections);
-            foreach ($combine_cpt_sec_data as $sectionName => $sectionData) {
-                // Array to string 
-                $replaceString = implode(', ', $sections[$sectionName]);
-                $templateContent = str_replace("{{{$sectionName}}}", $replaceString, $templateContent);
-            }
+            // Sections rendering in page 
+            $pageContent = $page->content;
+            $pageTwigTemplate = $twig->createTemplate($pageContent);
+            $pageOutput = $pageTwigTemplate->render($sections);
 
+            // Assets rendering in template 
+            $templateContent = $template->layout;
             $templateContent = str_replace("{{links}}", $template->links, $templateContent);
             $templateContent = str_replace("{{js}}", $template->js, $templateContent);
+            $templateContent = str_replace("{{css}}", $template->css, $templateContent);
+            $templateContent = str_replace("{{scripts}}", $template->scripts, $templateContent);
+            $templateContent = str_replace("{{page}}", $pageOutput, $templateContent);
+
+            // Final Rendering for template 
             $twigTemplate = $twig->createTemplate($templateContent);
             $finalOutput = $twigTemplate->render($rednerData);
             return view('my_website', compact('finalOutput'));

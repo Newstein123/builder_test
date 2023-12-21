@@ -25,6 +25,9 @@ const SideBar = () => {
       <div className='p-3'>
         <Link href={route('industry.index')}>  Industry  </Link>
       </div>
+      <div className='p-3'>
+        <Link href={route('media.index')}>  Media Library  </Link>
+      </div>
     </div>
   )
 }

@@ -99,7 +99,7 @@
                 cpt_name = $(this).attr('data-t3-cpt');
                 var cpt_dsg_class = $(`.component-${cpt_name}`)
                 old_cpt_dsg_name = cpt_dsg_class.data('t3-cptdsg');
-                section_name = $(this).attr('data-t3-section')
+                section_name = $(this).attr('data-t3-sec')
                 var url = "{{ route('component.cpt_dsgs.all') }}"
                 var data = {
                     cpt_name : cpt_name,
